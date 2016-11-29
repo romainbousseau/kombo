@@ -2,3 +2,23 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+
+.wrapper {
+
+background-color: #D5EEFF;
+padding: 30px;
+text-align: center;
+
+}
+
+.wrapper > h2 {
+  margin-bottom: 40px;
+}
+
+#description {
+
+  margin-bottom: 30px;
+}
+
+
