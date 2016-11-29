@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TODO</title>
+    <title>Kombo : l'art de l'apprentissage en binome</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,39 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-brand">
+        <%= link_to image_tag("kombologo.png", width: 60, :class => "logo"), root_path %>
+      </div>
+
+        <% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+
+            <li> <%= link_to "#" do %>
+              <div class="whole_badge">
+                <i class="fa fa-envelope-o"></i>
+                <div class="badge badge-blue">3</div>
+              </div>
+            <% end %>
+              <span></span>
+            </li>
+
+      <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", "data-toggle" => "dropdown" %>
+          <li> <%= link_to "Account", edit_user_registration_path %>   <span></span> </li>
+          <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  <span></span></li>
+          </ul>
+        <% else %>
+           <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Sign up", new_user_registration_path %>  <span></span> </li>
+            <li><%= link_to "Log in", new_user_session_path %>  <span></span> </li>
+          </ul>
+        <% end %>
+      </div>
+  </nav>
+
+
+
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>

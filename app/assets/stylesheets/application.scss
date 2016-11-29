@@ -13,3 +13,110 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+
+
+ul {
+  list-style:none;
+  font-size:17px;
+  text-align:center;
+  background-color:#005689;
+  padding : 20px;
+
+}
+
+
+.navbar-default .navbar-nav > li > a{
+color: white;
+padding-top: 0px;
+padding-bottom: 0px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+color: #D5EEFF;
+}
+
+.logo{
+width: 60px;
+margin-left: 20px;
+}
+
+
+.navbar-brand{
+
+  padding : 0px 0px;
+}
+
+.navbar{
+  background-color:#005689;
+  padding : 10px;
+  width: 100%;
+  border : none;
+  margin-bottom: 0px;
+}
+
+li {
+  position:relative;
+  display:inline;
+}
+
+li a {
+  text-decoration:none;
+  color:#333;
+  display:inline-block;
+  padding:10px;
+}
+
+span {
+  display:block;
+  width:calc(100% - 23px);
+  height:4px;
+  background:#D5EEFF;
+  position:absolute;
+  left:10px;
+  bottom:-10px;
+}
+
+li a:hover {
+  color:#0088CC;
+}
+
+li a:hover ~ span {
+   animation:ul 0.3s ease-out;
+   background:#FF895D;
+}
+
+@keyframes ul {
+  0% {
+    width:0;
+  }
+  100% {
+    width:calc(100% - 23px);
+  }
+}
+
+.btn-mine{
+text-transform: uppercase;
+letter-spacing: 2px;
+text-align: center;
+font-size: 18px;
+font-weight: 300px;
+margin: 5em auto;
+padding: 10px 20px;
+width: 200px;
+background:#FF895D;
+border: 1px solid #FF895D;
+color: #FFF;
+overflow: hidden;
+transition: all 0.5s;
+
+}
+
+
+.btn-mine:hover, .btn-mine:active{
+
+text-decoration: none;
+color: #FF4776;
+border-color: #FF4776;
+background: #FFF;
+}
+
