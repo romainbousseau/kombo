@@ -16,25 +16,25 @@
       </div>
 
         <% if user_signed_in? %>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class=" myul nav navbar-nav navbar-right">
 
-            <li> <%= link_to "#" do %>
+            <li class="navelement"> <%= link_to "#" do %>
               <div class="whole_badge">
                 <i class="fa fa-envelope-o"></i>
                 <div class="badge badge-blue">3</div>
               </div>
             <% end %>
-              <span></span>
+              <span class="span"></span>
             </li>
 
       <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", "data-toggle" => "dropdown" %>
-          <li> <%= link_to "Account", edit_user_registration_path %>   <span></span> </li>
-          <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  <span></span></li>
+          <li class="navelement"> <%= link_to "Account", edit_user_registration_path %>   <span class="span"></span> </li>
+          <li class="navelement"> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  <span class="span"></span class="span"></li>
           </ul>
         <% else %>
            <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Sign up", new_user_registration_path %>  <span></span> </li>
-            <li><%= link_to "Log in", new_user_session_path %>  <span></span> </li>
+            <li class="navelement"><%= link_to "Sign up", new_user_registration_path %>  <span class="span"></span> </li>
+            <li class="navelement"><%= link_to "Log in", new_user_session_path %>  <span class="span"></span> </li>
           </ul>
         <% end %>
       </div>

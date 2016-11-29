@@ -15,7 +15,7 @@
 @import "vendor/index";
 
 
-ul {
+.myul {
   list-style:none;
   font-size:17px;
   text-align:center;
@@ -38,6 +38,7 @@ color: #D5EEFF;
 .logo{
 width: 60px;
 margin-left: 20px;
+margin-top: 5px;
 }
 
 
@@ -54,19 +55,19 @@ margin-left: 20px;
   margin-bottom: 0px;
 }
 
-li {
+.navelement {
   position:relative;
   display:inline;
 }
 
-li a {
+.navelement > a {
   text-decoration:none;
   color:#333;
   display:inline-block;
   padding:10px;
 }
 
-span {
+.span {
   display:block;
   width:calc(100% - 23px);
   height:4px;
@@ -76,11 +77,11 @@ span {
   bottom:-10px;
 }
 
-li a:hover {
+.navelement > a:hover {
   color:#0088CC;
 }
 
-li a:hover ~ span {
+.navelement > a:hover ~ span {
    animation:ul 0.3s ease-out;
    background:#FF895D;
 }
