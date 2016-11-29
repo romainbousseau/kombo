@@ -1,2 +1,5 @@
-$('.user-show-container').html("<%= j render 'users/user_card', user: @user %>");
+var new_card = $("<%= j render 'users/user_card', user: @user %>").hide();
+$('.user-show-container').empty();
+$('.user-show-container').append(new_card);
+new_card.slideDown();
 
