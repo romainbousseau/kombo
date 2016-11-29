@@ -1,1 +1,29 @@
-<h1>user index</h1>
+<h1 class="text-center">YOUR SEARCH</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" id="user-list">
+        <h3 class="text-center">Your matches</h3>
+        <% @users.each do |user| %>
+          <%= link_to user_path(user), remote: true do %>
+          <div class="user user-grey">
+            <%= user.first_name %> <%= user.last_name %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 user-show-container">
+      <%= render "users/user_card", user: @users.first %>
+    </div>
+
+    <div class="col-xs-12 col-sm-8">
+      <div class="card">
+        <div class="brief text-center">
+          <%= render 'matches/brief' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
