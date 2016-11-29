@@ -10,6 +10,7 @@
   <div class="form-actions">
     <%= f.button :submit, "Log in" %>
   </div>
+  <%= link_to 'Register with Linkedin', user_linkedin_omniauth_authorize_path %>
 <% end %>
 
 <%= render "devise/shared/links" %>
