@@ -32,7 +32,7 @@
           <li class="navelement"> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  <span class="span"></span class="span"></li>
           </ul>
         <% else %>
-           <ul class="nav navbar-nav navbar-right">
+           <ul class="myul nav navbar-nav navbar-right">
             <li class="navelement"><%= link_to "Sign up", new_user_registration_path %>  <span class="span"></span> </li>
             <li class="navelement"><%= link_to "Log in", new_user_session_path %>  <span class="span"></span> </li>
           </ul>
