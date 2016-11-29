@@ -5,20 +5,17 @@
       <div class="card">
         <h3 class="text-center">Your matches</h3>
         <% @users.each do |user| %>
+          <%= link_to user_path(user), remote: true do %>
           <div class="user">
             <%= user.first_name %> <%= user.last_name %>
           </div>
+          <% end %>
         <% end %>
       </div>
     </div>
 
-    <div class="col-xs-12 col-sm-8">
-      <div class="card">
-        <h3 class="text-center">show user</h3>
-        <div class="user-profile">
-
-        </div>
-      </div>
+    <div class="col-xs-12 col-sm-8 user-show-container">
+      <%= render "users/user_card", user: @users.first %>
     </div>
 
     <div class="col-xs-12 col-sm-8">
