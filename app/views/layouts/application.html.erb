@@ -13,5 +13,7 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag "application-print", :media => "print" %>
+    <%= yield(:after_js) %>
   </body>
 </html>

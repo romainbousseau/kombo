@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
 
   def index
-    @skills =  Skill.all
+    @skills = Skill.all
   end
 end
