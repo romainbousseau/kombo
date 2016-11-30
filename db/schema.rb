@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129130820) do
+ActiveRecord::Schema.define(version: 20161130105015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "matches", force: :cascade do |t|
     t.integer  "user_skill_id"
@@ -30,8 +35,17 @@ ActiveRecord::Schema.define(version: 20161129130820) do
 
   create_table "skills", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "subcategory_id"
+    t.index ["subcategory_id"], name: "index_skills_on_subcategory_id", using: :btree
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_subcategories_on_category_id", using: :btree
   end
 
   create_table "user_skills", force: :cascade do |t|
@@ -68,6 +82,8 @@ ActiveRecord::Schema.define(version: 20161129130820) do
 
   add_foreign_key "matches", "user_skills"
   add_foreign_key "matches", "users"
+  add_foreign_key "skills", "subcategories"
+  add_foreign_key "subcategories", "categories"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
 end
