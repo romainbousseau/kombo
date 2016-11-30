@@ -20,6 +20,9 @@ gem 'autoprefixer-rails'
 gem 'omniauth'
 gem 'omniauth-linkedin'
 
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
