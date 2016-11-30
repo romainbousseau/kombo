@@ -1,0 +1,4 @@
+<%= simple_form_for @match do |f| %>
+  <%= f.input :brief, :input_html => { :rows => 6 } %>
+  <%= f.submit "add brief", class: "btn btn-primary" %>
+<% end %>
