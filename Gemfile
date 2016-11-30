@@ -23,6 +23,9 @@ gem 'omniauth-linkedin'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+gem 'capybara'
+gem 'poltergeist'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
