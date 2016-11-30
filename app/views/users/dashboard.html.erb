@@ -1,0 +1,186 @@
+<h1 style="text-align:center;">
+  Welcome to your dashboard <%= @user.first_name %>
+  <a id="skill-field"><i class="fa fa-map-marker rad-txt-danger"></i> Marketing</a>
+</h1>
+<!-- transformer le departement en paramètre dynamique -->
+
+<div class="container">
+
+  <div class="row">
+      <div class="col-md-4 col-xs-6">
+        <div class="rad-info-box rad-txt-success">
+          <i class="fa fa-gift"></i>
+          <span class="heading">Earned Points</span>
+          <span class="value"><span>4949</span></span>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-6">
+        <div class="rad-info-box rad-txt-primary">
+          <i class="fa fa-user-plus"></i>
+          <span class="heading">People you helped</span>
+          <span class="value"><span>23</span></span>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-6">
+        <div class="rad-info-box rad-txt-danger">
+          <i class="fa fa-level-up"></i>
+          <span class="heading">Next bonus CE in </span>
+          <span class="value"><span>49 points</span></span>
+        </div>
+      </div>
+  </div>
+  <br>
+
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <div id="skills">
+
+        <h2> <%= image_tag("rewards.png", size: "30x30") %> Your skills </h2>
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+      <div id="identity">
+        <h2> your profile </h2>
+      </div>
+    <!-- recupere la description linkedin -->
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <div id="Rewards">
+      <h2> your rewards </h2>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div id="Activity">
+      <h2><i class="fa fa-calendar"></i> your schedule </h2>
+      </div>
+    </div>
+
+<style>
+
+
+
+
+
+.rad-info-box{
+  padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 0.2em #dedede;
+}
+
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.rad-info-box .heading {
+    font-size: 1.2em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+
+.rad-info-box .value, .rad-info-box .heading {
+    display: block;
+    position: relative;
+    color: #515d6e;
+    text-align: right;
+    z-index: 10;
+  }
+
+  .rad-info-box i {
+    display: block;
+    background-clip: padding-box;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    line-height: 60px;
+    text-align: center;
+    font-size: 4.4em;
+    position: absolute;
+}
+
+.rad-txt-success {
+    color: #007CB9;
+    transition: all 0.7s ease;
+    box-shadow: 1px;
+}
+
+.rad-txt-success:hover {
+    transform:scale(1.1);
+}
+
+
+.rad-txt-primary {
+    color:#FF895D;
+    transition: all 0.7s ease;
+}
+
+.rad-txt-primary:hover {
+    transform:scale(1.1);
+}
+
+.rad-txt-danger{
+color : #D5EEFF;
+transition: all 0.7s ease;
+}
+
+.rad-txt-danger:hover {
+    transform:scale(1.1);
+}
+
+#skill-field{
+ font-size: 20px;
+}
+
+#skills{
+  background-color: red;
+  height: 50vh;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: all 0.7s ease;
+}
+
+#skills:hover{
+border-radius:10%;
+box-shadow: 0 10px 6px -6px grey;
+}
+
+
+#identity{
+ background: lightgrey;
+  height: 50vh;
+  margin-bottom: 20px;
+  transition: all 0.7s ease;
+}
+
+#identity:hover{
+border-radius:10%;
+box-shadow: 0 10px 6px -6px grey;
+}
+
+#Rewards{
+background-color: black;
+  height: 50vh;
+}
+
+
+#Activity{
+background-color: deepskyblue;
+height: 50vh;
+}
+
+</style>

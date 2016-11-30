@@ -1,12 +1,16 @@
-<div class="header">
-  <%= image_tag "kombo_header.png", :class => "header" %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_url('kombo_header.png') %>);">
+  <div class="banner-content">
+    <h1> Kombo </h1>
+    <p>Find the mate you need now !</p>
+  <%= link_to "find", "#", :class => "btn-mine" %>
+  </div>
 </div>
 
-<div class="wrapper col-md-12">
+<div class="mywrapper col-md-12">
   <h2> how Kombo is working ?</h2>
   <p id="description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, eos, praesentium. Provident vitae iusto laborum rerum, ipsum quod dolorem fugit assumenda quidem deleniti facere, tempore iure. Repellat sint, eius repellendus.
   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis aliquam, enim maxime laudantium aut magnam perferendis error laboriosam veritatis excepturi temporibus animi, laborum vitae. Nihil error, natus ratione reiciendis maxime! </p>
-  <%= link_to "find", "#", :class => "btn-mine" %>
+
 </div>
 
 

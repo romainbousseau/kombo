@@ -4,8 +4,15 @@ class UserPolicy < ApplicationPolicy
       scope.all
     end
 
-    def show?
-      true
-    end
   end
+
+  def show?
+    true
+  end
+
+  def dashboard?
+    true
+  end
+
+
 end
