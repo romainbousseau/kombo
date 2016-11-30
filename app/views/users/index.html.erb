@@ -7,7 +7,7 @@
         <% @users.each do |user| %>
           <%= link_to user_path(user), remote: true do %>
           <div class="user user-grey">
-            <%= user.first_name %> <%= user.last_name %>
+            <%= image_tag user.linkedin_picture_url, class: 'avatar' %> <%= user.first_name %> <%= user.last_name %>
           </div>
           <% end %>
         <% end %>
