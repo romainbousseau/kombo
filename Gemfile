@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'pundit'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 gem 'sass-rails'
 gem 'jquery-rails'
