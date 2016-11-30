@@ -9,35 +9,42 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-    <nav class="navbar navbar-default">
+
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-brand">
         <%= link_to image_tag("kombologo.png", width: 60, :class => "logo"), root_path %>
       </div>
 
-        <% if user_signed_in? %>
-          <ul class=" myul nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <ul class=" myul nav navbar-nav navbar-right">
 
-            <li class="navelement"> <%= link_to "#" do %>
+          <li class="navelement">
+            <%= link_to "#" do %>
               <div class="whole_badge">
                 <i class="fa fa-envelope-o"></i>
                 <div class="badge badge-blue">3</div>
               </div>
             <% end %>
-              <span class="span"></span>
-            </li>
+            <span class="span"></span>
+          </li>
 
-      <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", "data-toggle" => "dropdown" %>
-          <li class="navelement"> <%= link_to "Account", edit_user_registration_path %>   <span class="span"></span> </li>
+          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle" %>
+          <li class="navelement"> <%= link_to "Account", edit_user_registration_path %>
+            <span class="span"></span>
+          </li>
           <li class="navelement"> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  <span class="span"></span class="span"></li>
-          </ul>
-        <% else %>
-           <ul class="myul nav navbar-nav navbar-right">
-            <li class="navelement"><%= link_to "Sign up", new_user_registration_path %>  <span class="span"></span> </li>
-            <li class="navelement"><%= link_to "Log in", new_user_session_path %>  <span class="span"></span> </li>
-          </ul>
-        <% end %>
-      </div>
+        </ul>
+
+      <% else %>
+        <ul class="myul nav navbar-nav navbar-right">
+          <li class="navelement"><%= link_to "Sign up", new_user_registration_path %>
+            <span class="span"></span>
+          </li>
+          <li class="navelement"><%= link_to "Log in", new_user_session_path %>  <span class="span"></span> </li>
+        </ul>
+      <% end %>
+    </div>
   </nav>
 
 

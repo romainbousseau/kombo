@@ -50,6 +50,7 @@ margin-left: 20px;
   width: 100%;
   border : none;
   margin-bottom: 0px;
+  opacity: 0.9;
 }
 
 .navelement {
@@ -79,11 +80,11 @@ margin-left: 20px;
 }
 
 .navelement > a:hover ~ span {
-   animation:ul 0.3s ease-out;
+   animation: underline 0.3s ease;
    background:#FF895D;
 }
 
-@keyframes ul {
+@keyframes underline{
   0% {
     width:0;
   }
