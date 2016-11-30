@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require_tree .
 //= require moment
 //= require fullcalendar
+//= require chosen-jquery
+//= require_tree .
