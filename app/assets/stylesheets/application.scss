@@ -37,8 +37,10 @@ color: #D5EEFF;
 }
 
 .logo{
-width: 60px;
+width: 160px;
 margin-left: 20px;
+position: absolute;
+top: 22px;
 }
 
 .navbar-brand{
@@ -52,6 +54,7 @@ margin-left: 20px;
   border : none;
   margin-bottom: 0px;
   opacity: 0.9;
+  position: relative;
 }
 
 .navelement {
