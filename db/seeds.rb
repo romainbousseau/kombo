@@ -1,6 +1,7 @@
 require "capybara"
 require "capybara/dsl"
 require 'capybara/poltergeist'
+require 'json'
 
 class Scraper
   include Capybara::DSL
@@ -30,35 +31,54 @@ class Scraper
     click_on('login-submit')
     sleep 2
 
-    visit('https://www.linkedin.com/directory/topics-more/')
-    alpha = all(".wrapper .section:nth-child(2) a")
+    # alpha = all(".wrapper .section:nth-child(2) a")
     elements = all(".wrapper .section:nth-child(4) a")
-    letters = ('a'..'z').to_a
+    # letters = ('a'..'z').to_a
 
+    skills_hash = {}
+    sum = 0
 
-    alpha.count.times do |index|
-      p "!!! new letter !!!"
-      all(".wrapper .section:nth-child(2) a")[index].click
-      sleep 1
-      p "!!! go to list !!!"
-      elements = all(".wrapper .section:nth-child(4) a")
-      letters = ('a'..'z').to_a[index]
-      elements.count.times do |index|
-        begin
+    filepath = 'skills.json'
+
+    # alpha.count.times do |index|
+    #   begin
+    #     p "!!! new letter !!!"
+    #     all(".wrapper .section:nth-child(2) a")[index].click
+    #     sleep 1
+    #     p "!!! go to list !!!"
+    #     elements = all(".wrapper .section:nth-child(4) a")
+    #     letters = ('a'..'z').to_a[index]
+    #   rescue
+    #     Capybara::Poltergeist::StatusFailError
+    #   end
+
+    visit('https://www.linkedin.com/directory/topics-j/')
+    elements = all(".wrapper .section:nth-child(4) a")
+    elements.count.times do |index|
+      begin
         p "!!! list !!!"
         all(".wrapper .section:nth-child(4) a")[index].click
         sleep 1
         all('.quad-column a').each do |link|
-          p link.text
+          begin
+            skills_hash[sum += 1] = link.text
+            File.open(filepath, 'w') do |file|
+              file.write(JSON.generate(skills_hash))
+            end
+            p link.text
+          rescue
+            Capybara::Poltergeist::StatusFailError
+          end
         end
-        visit("https://www.linkedin.com/directory/topics-#{letters}/")
-        sleep 1
-        rescue
-          Capybara::Poltergeist::StatusFailError
-        end
+      rescue
+        Capybara::Poltergeist::StatusFailError
       end
-      visit('https://www.linkedin.com/directory/topics-more/')
-      sleep 1
+      begin
+        visit('https://www.linkedin.com/directory/topics-j/')
+        sleep 2
+      rescue
+        Capybara::Poltergeist::StatusFailError
+      end
     end
   end
 end
