@@ -1,4 +1,8 @@
-<%= simple_form_for [match, message], remote: true  do |f| %>
-  <%= f.input :content, as: :text%>
-  <%= f.submit "Send", class: "btn btn-primary", id: "message-send", controller: :messages, action: :create %>
+<%= simple_form_for [match, message], remote: true, class: "message_form"  do |f| %>
+<div class="text_field_box">
+  <%= f.input :content, as: :text, label: false %>
+  <%= button_tag type: 'submit', class: "btn btn-primary", id: "message-send", controller: :messages, action: :create do %>
+    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+  <% end %>
+</div>
 <% end %>
