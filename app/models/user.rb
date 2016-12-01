@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:linkedin]
   acts_as_taggable_on :tags
-  has_many :messages
+  has_many :messages, through: :matches
 
   def self.find_for_linkedin_oauth(auth)
     #TODO Add

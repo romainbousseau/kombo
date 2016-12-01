@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
 
   def show
     @message = Message.new
-    @conversation = Message.all.where(match_id: Match.find(@match).id)
+    @conversation = Message.where(match_id: @match.id)
     authorize @match
   end
 

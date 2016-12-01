@@ -15,7 +15,12 @@
      <div class="col-xs-12 col-sm-4">
       <div id="chat" class="card">
         <div id="chat-content">
-          
+          <% @conversation.each do |message| %>
+          <div class="<%= message.user == current_user ? 'message_from_current_user' : 'message_from_other_user' %>">
+            <p class="username"> <%= message.user.first_name %> </p>
+            <p class="message_text"> <%= message.content %> </p>
+          </div>
+          <% end %>
         </div>
         <div class="brief text-center">
           <%= render 'chat', match: @match, message: @message %>
@@ -54,6 +59,14 @@
       editable: true,
       eventLimit: true, // allow "more" link when too many events
     });
+
+  $('#new_message').keydown(function(e) {
+    var key = e.which;
+    if (key == 13) {
+    // As ASCII code for ENTER key is "13"
+      $('#new_message').submit(); // Submit form code
+      }
+  });
 
   </script>
 <% end %>

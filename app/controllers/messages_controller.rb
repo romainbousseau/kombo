@@ -14,8 +14,9 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user
+    @message.match = @match
     authorize @message
-    
+
     if @message.save
      respond_to do |format|
        format.html { redirect_to match_path(@match) }
