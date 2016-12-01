@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth'
 gem 'omniauth-linkedin'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
