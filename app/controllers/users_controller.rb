@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
   def index
-    @users = policy_scope(User)
     @match = Match.new
+    filtered_search = params[:skill][:name].reject{|skill| skill.blank?}
+    @users = policy_scope(User).tagged_with(filtered_search)
   end
 
   def show
