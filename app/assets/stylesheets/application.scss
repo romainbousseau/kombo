@@ -117,3 +117,20 @@ color: #FF4776;
 border-color: #FF4776;
 background: #FFF;
 }
+
+#chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95vh;
+}
+
+#chat-content {
+  height: 75vh;
+  background-color: white;
+}
+
+.test {
+  position: absolute;
+
+}
