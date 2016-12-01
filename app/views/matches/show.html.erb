@@ -6,16 +6,19 @@
     <div class="col-xs-12 col-sm-8">
       <div class="card">
         <div class="brief text-center">
-          <%= render 'brief' %>
+          <h2> Brief </h2>
+          <%= @match.brief %>
         </div>
       </div>
        <div id="calendar"></div>
     </div>
      <div class="col-xs-12 col-sm-4">
       <div id="chat" class="card">
-        <div id="chat-content"></div>
+        <div id="chat-content">
+          
+        </div>
         <div class="brief text-center">
-          <%= render 'chat' %>
+          <%= render 'chat', match: @match, message: @message %>
         </div>
       </div>
     </div>
@@ -54,4 +57,3 @@
 
   </script>
 <% end %>
-

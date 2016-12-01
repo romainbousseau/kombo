@@ -1,5 +1,4 @@
-<%= simple_form_for @match do |f| %>
-
-  <%= f.input :brief, :input_html => { :row => 1 } %>
-  <%= f.submit "add brief", class: "btn btn-primary" %>
+<%= simple_form_for [match, message], remote: true  do |f| %>
+  <%= f.input :content, as: :text%>
+  <%= f.submit "Send", class: "btn btn-primary", id: "message-send", controller: :messages, action: :create %>
 <% end %>

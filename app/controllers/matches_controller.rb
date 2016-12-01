@@ -2,6 +2,8 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [ :show, :edit, :update ]
 
   def show
+    @message = Message.new
+    @conversation = Message.all.where(match_id: Match.find(@match).id)
     authorize @match
   end
 
