@@ -1,21 +1,26 @@
 <h1 class="text-center">show match</h1>
+<hr>
 <div class="container">
   <div class="row">
+  <div class="test">
     <div class="col-xs-12 col-sm-8">
       <div class="card">
         <div class="brief text-center">
           <%= render 'brief' %>
         </div>
       </div>
+       <div id="calendar"></div>
     </div>
-    <div id="calendar" class="col-xs-12 col-sm-8"></div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card">
+     <div class="col-xs-12 col-sm-4">
+      <div id="chat" class="card">
+        <div id="chat-content"></div>
         <div class="brief text-center">
-          <%= render 'brief' %>
+          <%= render 'chat' %>
         </div>
       </div>
     </div>
+
+  </div>
   </div>
 </div>
 <%= content_for(:after_js) do %>
