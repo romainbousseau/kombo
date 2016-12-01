@@ -4,8 +4,8 @@
   <div class="banner-content">
     <h1> Kombo </h1>
     <p>Find the skill you need now !</p>
-    <%= simple_form_for @skill, method: 'get', url: :users do |f| %>
-    <%= f.input :name, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true} %>
+    <%= simple_form_for :skill, method: "get", url: :users do |f| %>
+    <%= f.input :name, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you need '}} %>
     <%= f.submit "find match", class: "btn-mine" %>
     <% end %>
   </div>
