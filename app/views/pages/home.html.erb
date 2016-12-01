@@ -3,8 +3,11 @@
 
   <div class="banner-content">
     <h1> Kombo </h1>
-    <p>Find the mate you need now !</p>
-  <%= link_to "find", "#", :class => "btn-mine" %>
+    <p>Find the skill you need now !</p>
+    <%= simple_form_for @skill do |f| %>
+    <%= f.input :name, as: :select, collection: Skill.all.map { |u| [u.first_name, u.id] }, input_html: { rows: 6, class: "chosen-select", multiple: true} %>
+    <%= f.submit "find match", class: "btn-mine" %>
+    <% end %>
   </div>
 </div>
 

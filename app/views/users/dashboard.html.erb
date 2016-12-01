@@ -44,7 +44,7 @@
 
     <div class="col-md-6">
       <div id="identity">
-        <h2> your profile </h2>
+        <h2 style="text-align:center;"><%= image_tag("profile.png", size: "30x30") %> your profile </h2>
       </div>
     <!-- recupere la description linkedin -->
     </div>
@@ -55,13 +55,13 @@
 
     <div class="col-md-6">
       <div id="Rewards">
-      <h2> your rewards </h2>
+      <h2 style="text-align:center;"> <%= image_tag("trophy.png", size: "30x30") %> your rewards </h2>
       </div>
     </div>
 
     <div class="col-md-6">
       <div id="Activity">
-      <h2><i class="fa fa-calendar"></i> your schedule </h2>
+      <h2 style="text-align:center;"><%= image_tag("calendar.png", size: "30x30") %>  your schedule </h2>
       </div>
     </div>
 
@@ -84,6 +84,11 @@
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+}
+
+.fa-calendar{
+
+  color: red;
 }
 
 .rad-info-box .heading {
@@ -114,7 +119,7 @@
 }
 
 .rad-txt-success {
-    color: #007CB9;
+    color:#FF895D;
     transition: all 0.7s ease;
     box-shadow: 1px;
 }
@@ -134,7 +139,7 @@
 }
 
 .rad-txt-danger{
-color : #D5EEFF;
+color:#FF895D;
 transition: all 0.7s ease;
 }
 
@@ -147,7 +152,9 @@ transition: all 0.7s ease;
 }
 
 #skills{
-  background-color: red;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 0.2em #dedede;
   height: 50vh;
   text-align: center;
   margin-bottom: 20px;
@@ -161,7 +168,9 @@ box-shadow: 0 10px 6px -6px grey;
 
 
 #identity{
- background: lightgrey;
+   padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 0.2em #dedede;
   height: 50vh;
   margin-bottom: 20px;
   transition: all 0.7s ease;
@@ -173,14 +182,30 @@ box-shadow: 0 10px 6px -6px grey;
 }
 
 #Rewards{
-background-color: black;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 0.2em #dedede;
   height: 50vh;
+  transition: all 0.7s ease;
+}
+
+#Rewards:hover{
+border-radius:10%;
+box-shadow: 0 10px 6px -6px grey;
 }
 
 
 #Activity{
-background-color: deepskyblue;
-height: 50vh;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 0.2em #dedede;
+  height: 50vh;
+  transition: all 0.7s ease;
+}
+
+#Activity:hover{
+border-radius:10%;
+box-shadow: 0 10px 6px -6px grey;
 }
 
 </style>
