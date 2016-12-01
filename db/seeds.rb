@@ -7,7 +7,6 @@ class Scraper
 
   def run
     Capybara.default_max_wait_time = 15
-    # Capybara.match = :first
     Capybara.configure do |c|
       c.javascript_driver = :poltergeist
       c.default_driver = :poltergeist
@@ -25,22 +24,42 @@ class Scraper
     Capybara.app_host = "http://www.linkedin.com"
     page.driver.browser.clear_cookies
     visit('/')
-    sleep 2
+    sleep 1
     fill_in 'login-email', :with => 'jcjuppe@gmail.com', visible: false
     fill_in 'login-password', :with => 'lewagon1', visible: false
     click_on('login-submit')
     sleep 2
 
     visit('https://www.linkedin.com/directory/topics-more/')
+    alpha = all(".wrapper .section:nth-child(2) a")
+    elements = all(".wrapper .section:nth-child(4) a")
+    letters = ('a'..'z').to_a
 
-    all(".wrapper .section:nth-child(4) a").first.click
-    sleep 1
-    page.save_screenshot('screenshot.png')
-    title = []
-    all('.quad-column a').each do |link|
-      title << link.text
+
+    alpha.count.times do |index|
+      p "!!! new letter !!!"
+      all(".wrapper .section:nth-child(2) a")[index].click
+      sleep 1
+      p "!!! go to list !!!"
+      elements = all(".wrapper .section:nth-child(4) a")
+      letters = ('a'..'z').to_a[index]
+      elements.count.times do |index|
+        begin
+        p "!!! list !!!"
+        all(".wrapper .section:nth-child(4) a")[index].click
+        sleep 1
+        all('.quad-column a').each do |link|
+          p link.text
+        end
+        visit("https://www.linkedin.com/directory/topics-#{letters}/")
+        sleep 1
+        rescue
+          Capybara::Poltergeist::StatusFailError
+        end
+      end
+      visit('https://www.linkedin.com/directory/topics-more/')
+      sleep 1
     end
-    puts title
   end
 end
 
