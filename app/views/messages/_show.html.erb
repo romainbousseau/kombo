@@ -1,0 +1,11 @@
+<% if @message.user == current_user %>
+  <div class="message_from_current_user">
+    <p class="username"> <%= @message.user.first_name %> </p>
+    <p class="message_text"> <%= @message.content %> </p>
+  </div>
+<% else %>
+  <div class="message_from_other_user">
+    <p class="username"> <%= @message.user.first_name %> </p>
+    <p class="message_text"> <%= @message.content %> </p>
+  </div>
+<% end %>

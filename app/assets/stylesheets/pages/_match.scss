@@ -1,0 +1,55 @@
+.message_from_current_user {
+  background-color: #0C78BD;
+  color: white;
+  margin: 10px;
+  padding: 5px;
+  width: 70%;
+}
+
+.message_from_other_user {
+  background-color: #62CE82;
+  color: white;
+  margin: 10px;
+  padding: 5px;
+  width: 70%;
+  margin-left: 28%
+}
+
+.message_text {
+  font-weight: lighter;
+}
+
+
+#chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95vh;
+}
+
+#chat-content {
+  height: 100vh;
+  background-color: white;
+  overflow-y:scroll;
+}
+
+
+#message_content {
+  background: white;
+  border-top: #E8E8E9 !important;
+  border-left: transparent !important;
+  border-right: transparent !important;
+  border-bottom: transparent !important;
+  font-weight: 200;
+  padding-left: 0;
+
+  &:focus {
+    // outline: none;
+    box-shadow: none;
+    border-top: #E8E8E9 !important;
+  }
+}
+
+.text_field_box {
+  position: relative;
+}
