@@ -15,7 +15,8 @@
   </div>
 </div>
 
-
+<% if user_signed_in? %>
+<% else %>
 <div class="row">
  <div class="box">
 <h3 style="text-align:center;" class="js-shadow" id="myh2"> How Kombo is working ?</h3>
@@ -43,9 +44,6 @@
         <div class="icones" id="icone3"></div>
       </div>
     </div>
-
-
-    </div>
   </div>
 </div>
-
+<% end %>
