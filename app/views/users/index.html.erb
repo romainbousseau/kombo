@@ -13,9 +13,11 @@
             <% @users.each do |user| %>
               <%= link_to user_path(user), remote: true do %>
               <div class="user user-grey">
-                <% if user_has_photo? %>
-                <%= user.first_name %> <%= user.last_name %><%= image_tag user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
+                <% if user.linkedin_picture_url.nil? %>
+                <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle" %>
+                <%= user.first_name %> <%= user.last_name %>
                 <% else %>
+                <%= image_tag current_user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
                 <%= user.first_name %> <%= user.last_name %>
                 <% end %>
               <% end %>
