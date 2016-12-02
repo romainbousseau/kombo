@@ -11,14 +11,15 @@
         <% else %>
           <% @users.each do |user| %>
             <%= link_to user_path(user), remote: true do %>
-            <div class="user user-grey">
+            <div class="user user-grey" id="<%=user.id %>">
               <% if user.linkedin_picture_url.nil? %>
                 <%= user.first_name %> <%= user.last_name %>
               <% else %>
                   <%= user.first_name %> <%= user.last_name %><%= image_tag user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
               <% end %>
+              </div>
         <% end %>
-          </div>
+
           <% end %>
         <% end %>
       </div>
@@ -37,3 +38,14 @@
     </div>
   </div>
 </div>
+<% content_for :after_js do %>
+<script>
+// on click sur id function call ajax a l'ancienne
+$(document).ready(function() {
+  var userId = $('.user-blue').attr('id');
+
+  $('#match_user_id').attr("value", userId);
+});
+
+</script>
+<% end %>
