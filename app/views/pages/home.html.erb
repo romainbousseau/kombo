@@ -3,12 +3,12 @@
 
   <div class="banner-content">
     <h1> Click & Match</h1>
-    <h3>Main skills</h3>
+    <!-- <h3>Main skills</h3> -->
     <%= simple_form_for :skill, method: "get", url: :users do |f| %>
     <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you need '}} %>
-    <h3> Optional skills </h3>
+    <!-- <h3> Optional skills </h3>
     <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you need '}} %>
-
+ -->
 
     <%= f.submit "find match", class: "btn-mine" %>
     <% end %>
