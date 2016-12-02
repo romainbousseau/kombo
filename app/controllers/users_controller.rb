@@ -18,7 +18,10 @@ class UsersController < ApplicationController
 
     user_with_optional_skills = policy_scope(User).tagged_with(other_skills, :any => true)
 
-    @users = policy_scope(User).tagged_with(main_skills, :match_all => true)
+    @users = policy_scope(User).tagged_with(main_skills).to_a
+
+    @users.include?(current_user) ? @users.delete(current_user) :  @users
+
   end
 
   def show
