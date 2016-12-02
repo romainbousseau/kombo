@@ -16,10 +16,10 @@
             <% end %>
             <span class="span"></span>
           </li>
-          <% if user_has_photo? %>
-          <%= image_tag current_user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
-          <% else %>
+          <% if current_user.linkedin_picture_url.nil? %>
           <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle" %>
+          <% else %>
+          <%= image_tag current_user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
           <% end %>
           <li class="navelement"> <%= link_to "Account", edit_user_registration_path %>
             <span class="span"></span>
