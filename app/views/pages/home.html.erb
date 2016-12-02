@@ -1,23 +1,66 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_url('kombo_header.png') %>);">
+<div class="banner" style="background-image:url(<%= asset_url('kombo_header.png') %>);">
 
 
   <div class="banner-content">
-    <h1> Kombo </h1>
-    <p>Find the skill you need now !</p>
+    <h1> Click & Match</h1>
+    <h3>Main skills</h3>
     <%= simple_form_for :skill, method: "get", url: :users do |f| %>
-    <%= f.input :name, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you need '}} %>
+    <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you need '}} %>
+    <h3> Optional skills </h3>
+    <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you need '}} %>
+
+
     <%= f.submit "find match", class: "btn-mine" %>
     <% end %>
   </div>
 </div>
 
 
-<div class="mywrapper col-md-12">
-  <h2> how Kombo is working ?</h2>
-  <p id="description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, eos, praesentium. Provident vitae iusto laborum rerum, ipsum quod dolorem fugit assumenda quidem deleniti facere, tempore iure. Repellat sint, eius repellendus.
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis aliquam, enim maxime laudantium aut magnam perferendis error laboriosam veritatis excepturi temporibus animi, laborum vitae. Nihil error, natus ratione reiciendis maxime! </p>
-
+<div class="row">
+ <div class="box">
+<h2 style="text-align:center;" class="js-shadow" id="myh2"> How Kombo is working ?</h2>
 </div>
+</div>
+
+<div class="description">
+  <div class="container-fluid">
+    <div class="row">
+
+     <div class="col-md-4">
+        <h2 style="text-align:center;" class=> Categorize your need</h2>
+       <div class="icones" id="icone1"></div>
+      </div>
+
+      <div class="col-md-4">
+        <h2 style="text-align:center;">find the good one </h2>
+       <div class="icones" id="icone2"></div>
+      </div>
+
+
+      <div class="col-md-4">
+        <h2 style="text-align:center;">work in pair</h2>
+        <div class="icones" id="icone3"></div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<script>
+var makeShadow = function(num, color) {
+  var value = '';
+  for(var i = 1; i < num; i++) {
+    value += i+'px '+i+'px 0px' +color;
+    if(i != num - 1) {
+      value += ', ';
+    }
+  }
+  return value;
+};
+document.querySelector('.js-shadow').style.textShadow = makeShadow(200, '#B83A3A');
+
+</script>
 
 
 
