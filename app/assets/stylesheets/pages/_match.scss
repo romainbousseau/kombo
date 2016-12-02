@@ -1,9 +1,16 @@
+body {
+  background-color: #D5EEFF;
+}
 .message_from_current_user {
-  background-color: #0C78BD;
+  background-color: #196694;
   color: white;
   margin: 10px;
-  padding: 5px;
+  padding: 3px;
   width: 70%;
+  border-radius: 4px;
+  p {
+    margin: 0 5px 11px;
+  }
 }
 
 .message_from_other_user {
@@ -24,7 +31,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 95vh;
+  height: 77vh;
 }
 
 #chat-content {
@@ -52,4 +59,11 @@
 
 .text_field_box {
   position: relative;
+}
+
+hr {
+    margin-top: 22px;
+    margin-bottom: 22px;
+    border: 0;
+    border-top: 1px solid #D5EEFF;
 }
