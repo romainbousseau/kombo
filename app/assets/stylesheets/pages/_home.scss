@@ -4,18 +4,53 @@
  * ------------------------------------- */
 
 
-.mywrapper {
-  background-color: #D5EEFF;
-  padding: 45px;
-  text-align: center;
+
+
+
+.chosen-container-multi .chosen-choices {
+border:none;
+width: 400px;
+height: 500px;
+
 }
 
-.mywrapper > h2 {
-  margin-bottom: 40px;
+.icones{
+
+background-size: 70px;
+background-repeat: no-repeat;
+margin : auto;
+height: 90px;
+width: 90px;
+max-width: 100%;
 }
 
-#description {
-  margin-bottom: 30px;
+
+#icone1{
+ background-image: url('category.png')
+}
+#icone1:hover{
+background-image: url("category1.png");
+}
+
+#icone2{
+background-image: url("search.png");
+}
+
+#icone2:hover{
+background-image: url("search1.png");
+}
+
+#icone3{
+background-image: url("pair.png")
+
+}
+
+#icone3:hover{
+background-image: url("pair1.png");
+}
+
+.description {
+  padding-bottom: 40px;
 }
 
 
@@ -39,4 +74,24 @@
   font-weight: lighter;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
+}
+
+
+
+.box {
+  background:#FF895D;
+  width: 100%;
+}
+.js-shadow {
+  color: #fff;
+  font-size: 3em;
+  text-align: center;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+#myh2{
+// on en a besoin pour le how kombo works
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
