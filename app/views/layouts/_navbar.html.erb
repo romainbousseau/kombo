@@ -21,7 +21,7 @@
           <% else %>
           <%= image_tag current_user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
           <% end %>
-          <li class="navelement"> <%= link_to "Account", edit_user_registration_path %>
+          <li class="navelement"> <%= link_to "Dashboard", user_dashboard_path(current_user) %>
             <span class="span"></span>
           </li>
           <li class="navelement"> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  <span class="span"></span class="span"></li>

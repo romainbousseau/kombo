@@ -52,7 +52,8 @@
     <div class="col-md-6">
       <div id="identity">
         <h2 style="text-align:center;"><%= image_tag("profile.png", size: "30x30") %> your profile </h2>
-        <p style="text-align:center;"> Name : <%= @user.first_name%></p>
+        <p style="text-align:center;"> <%= @user.first_name%></p>
+        <p style="text-align:center;"> <%= @user.last_name%></p>
 
        <p style="text-align:center;"> <%= link_to "edit", edit_user_registration_path, class: "btn btn-primary" %></p>
       </div>
