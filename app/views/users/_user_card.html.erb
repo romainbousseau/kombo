@@ -7,7 +7,14 @@
       <%= image_tag user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
       <h3><%= user.first_name %> <%= user.last_name %></h3>
       <% else %>
-      <%= user.first_name %> <%= user.last_name %>
+        <%= user.first_name %> <%= user.last_name %>
+        <ul>
+        <% user.tag_list.each do |skill| %>
+          <li class="tags">
+             <%= skill %>
+          </li>
+        <% end %>
+        </ul>
       <% end %>
     <% end %>
   </div>
