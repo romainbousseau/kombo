@@ -14,5 +14,7 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-
+  def add_skill?
+    true
+  end
 end
