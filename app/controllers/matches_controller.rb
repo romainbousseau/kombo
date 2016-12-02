@@ -18,9 +18,8 @@ class MatchesController < ApplicationController
     @solver_user = User.find(parameters[:user_id].to_i)
     @problem_user = current_user
     @match = Match.new(match_params)
-    raise
-    @match.user = @user
-    @match.search_user
+    @match.problem_user = @problem_user
+    @match.solver_user = @solver_user
     authorize @match
     if @match.save
       redirect_to matches_path(@match)
