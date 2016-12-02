@@ -52,7 +52,7 @@ class Scraper
     #     Capybara::Poltergeist::StatusFailError
     #   end
 
-    visit('https://www.linkedin.com/directory/topics-m/')
+    visit('https://www.linkedin.com/directory/topics-z/')
     elements = all(".wrapper .section:nth-child(4) a")
     elements.count.times do |index|
       begin
@@ -74,7 +74,7 @@ class Scraper
         Capybara::Poltergeist::StatusFailError
       end
       begin
-        visit('https://www.linkedin.com/directory/topics-m/')
+        visit('https://www.linkedin.com/directory/topics-z/')
         sleep 2
       rescue
         Capybara::Poltergeist::StatusFailError
