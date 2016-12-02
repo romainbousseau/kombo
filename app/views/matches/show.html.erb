@@ -1,4 +1,4 @@
-<h1 class="text-center">show match</h1>
+<h1 class="text-center">Your match</h1>
 <hr>
 <div class="container">
   <div class="row">
@@ -10,7 +10,7 @@
           <%= @match.brief %>
         </div>
       </div>
-       <div id="calendar"></div>
+       <div id="calendar" class="card"></div>
     </div>
      <div class="col-xs-12 col-sm-4">
       <div id="chat" class="card">
@@ -21,7 +21,7 @@
             <p class="message_text"> <%= message.content %> </p>
           </div>
           <% end %>
-        </div>
+        </div><br/>
         <div class="brief text-center">
           <%= render 'chat', match: @match, message: @message %>
         </div>
