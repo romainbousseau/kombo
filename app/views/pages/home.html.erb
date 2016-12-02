@@ -1,4 +1,4 @@
-<div class="banner" style="background-image:url(<%= asset_url('kombo_header.png') %>);">
+<div class="banner" style="background: url(<%= asset_url('workingduo.jpg') %>);">
 
 
   <div class="banner-content">
@@ -18,7 +18,7 @@
 
 <div class="row">
  <div class="box">
-<h2 style="text-align:center;" class="js-shadow" id="myh2"> How Kombo is working ?</h2>
+<h3 style="text-align:center;" class="js-shadow" id="myh2"> How Kombo is working ?</h3>
 </div>
 </div>
 
@@ -26,38 +26,26 @@
   <div class="container-fluid">
     <div class="row">
 
+    <div class="icones-container">
      <div class="col-md-4">
-        <h2 style="text-align:center;" class=> Categorize your need</h2>
+        <h4 style="text-align:center;" class=> Categorize your need</h4>
        <div class="icones" id="icone1"></div>
       </div>
 
       <div class="col-md-4">
-        <h2 style="text-align:center;">find the good one </h2>
+        <h4 style="text-align:center;">find the good one </h4>
        <div class="icones" id="icone2"></div>
       </div>
 
 
       <div class="col-md-4">
-        <h2 style="text-align:center;">work in pair</h2>
+        <h4 style="text-align:center;">work in pair</h4>
         <div class="icones" id="icone3"></div>
       </div>
+    </div>
 
 
     </div>
   </div>
 </div>
 
-<script>
-var makeShadow = function(num, color) {
-  var value = '';
-  for(var i = 1; i < num; i++) {
-    value += i+'px '+i+'px 0px' +color;
-    if(i != num - 1) {
-      value += ', ';
-    }
-  }
-  return value;
-};
-document.querySelector('.js-shadow').style.textShadow = makeShadow(200, '#B83A3A');
-
-</script>

@@ -14,8 +14,11 @@ height: 500px;
 
 }
 
-.icones{
+.icones-container {
+  padding-top: 30px;
+}
 
+.icones{
 background-size: 70px;
 background-repeat: no-repeat;
 margin : auto;
@@ -90,8 +93,14 @@ background-image: url("pair1.png");
   overflow: hidden;
   width: 100%;
 }
+
 #myh2{
 // on en a besoin pour le how kombo works
     margin-top: 0px;
     margin-bottom: 0px;
+    padding: 20px 0;
+}
+
+.description {
+  background-color: #D5EEFF;
 }
