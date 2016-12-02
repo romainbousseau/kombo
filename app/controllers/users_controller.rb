@@ -10,15 +10,15 @@ class UsersController < ApplicationController
     all_skills = main_skills + other_skills
     params[:skill][:name].each_with_index do |skill, index|
       unless skill.empty?
-        index < index_of_separator ? main_skills << skill : other_skills << skill
+        # index < index_of_separator ? main_skills << skill : other_skills << skill
+        main_skills << skill
       end
     end
     users_with_main_skills = policy_scope(User).tagged_with(main_skills, :match_all => true)
 
     user_with_optional_skills = policy_scope(User).tagged_with(other_skills, :any => true)
 
-    @users = policy_scope(User).tagged_with(main_skills, :match_all => true).where("id > ?", 1)
-
+    @users = policy_scope(User).tagged_with(main_skills, :match_all => true)
   end
 
   def show

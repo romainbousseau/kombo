@@ -12,10 +12,10 @@
           <% @users.each do |user| %>
             <%= link_to user_path(user), remote: true do %>
             <div class="user user-grey">
-              <% if user_has_photo? %>
-              <%= user.first_name %> <%= user.last_name %><%= image_tag user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
+              <% if user.linkedin_picture_url.nil? %>
+                <%= user.first_name %> <%= user.last_name %>
               <% else %>
-              <%= user.first_name %> <%= user.last_name %>
+                  <%= user.first_name %> <%= user.last_name %><%= image_tag user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
               <% end %>
         <% end %>
           </div>
