@@ -1,37 +1,39 @@
-<h1 class="text-center">YOUR SEARCH</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" id="user-list">
-        <h3 class="text-center">Your matches</h3>
-        <% if @users.empty? || @users.nil?  %>
-          <div class="">
-            <h4> Sorry, no coworker your Kombo Search ! </h4>
-          </div>
-        <% else %>
-          <% @users.each do |user| %>
-            <%= link_to user_path(user), remote: true do %>
-            <div class="user user-grey">
-              <% if user.linkedin_picture_url.nil? %>
+<div class="wrapper-skyblue">
+  <div class="container">
+    <h1 class="text-center">YOUR SEARCH</h1>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" id="user-list">
+          <h3 class="text-center">Your matches</h3>
+          <% if @users.empty? || @users.nil?  %>
+            <div class="">
+              <h4> Sorry, no coworker matches your Kombo Search ! </h4>
+            </div>
+          <% else %>
+            <% @users.each do |user| %>
+              <%= link_to user_path(user), remote: true do %>
+              <div class="user user-grey">
+                <% if user.linkedin_picture_url.nil? %>
+                <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle" %>
                 <%= user.first_name %> <%= user.last_name %>
-              <% else %>
-                  <%= user.first_name %> <%= user.last_name %><%= image_tag user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
+                <% else %>
+                <%= image_tag current_user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
+                <%= user.first_name %> <%= user.last_name %>
+                <% end %>
               <% end %>
-        <% end %>
-          </div>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-    </div>
+          </div>
+        </div>
 
-    <div class="col-xs-12 col-sm-8 user-show-container">
-      <%= render "users/user_card", user: @users.first %>
-    </div>
-
-    <div class="col-xs-12 col-sm-8">
-      <div class="card">
-        <div class="brief text-center">
-          <%= render 'matches/brief' %>
+        <div class="col-xs-12 col-sm-8 user-show-container">
+          <%= render "users/user_card", user: @users.first %>
+          <div class="card">
+            <div class="brief text-center">
+              <%= render 'matches/brief' %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
