@@ -4,10 +4,29 @@
     <% if user.nil? %>
     <% else %>
       <% if user.linkedin_picture_url.nil? %>
-        <%= user.first_name %> <%= user.last_name %>
+        <div class="user-description text-center">
+          <%= image_tag "http://placehold.it/30x30" %>
+          <p><%= user.first_name %> <%= user.last_name %></p>
+        </div>
+        <ul>
+        <% user.tag_list.each do |skill| %>
+          <li class="tags">
+             <%= skill %>
+          </li>
+        <% end %>
+        </ul>
       <% else %>
-        <%= image_tag user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
-        <h3><%= user.first_name %> <%= user.last_name %></h3>
+        <div class="user-description text-center">
+          <%= image_tag user.linkedin_picture_url %>
+          <p><%= user.first_name %> <%= user.last_name %></p>
+        </div>
+        <ul>
+        <% user.tag_list.each do |skill| %>
+          <li class="tags">
+             <%= skill %>
+          </li>
+        <% end %>
+        </ul>
       <% end %>
     <% end %>
   </div>

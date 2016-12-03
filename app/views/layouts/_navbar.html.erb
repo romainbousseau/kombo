@@ -1,0 +1,39 @@
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-brand">
+        <%= link_to image_tag("logotrans.png", width: 60, :class => "logo"), root_path %>
+      </div>
+
+      <% if user_signed_in? %>
+        <ul class=" myul nav navbar-nav navbar-right">
+
+          <li class="navelement">
+            <%= link_to "#" do %>
+              <div class="whole_badge">
+                <i class="fa fa-envelope-o"></i>
+                <div class="badge badge-blue">3</div>
+              </div>
+            <% end %>
+            <span class="span"></span>
+          </li>
+          <% if current_user.linkedin_picture_url.nil? %>
+          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle" %>
+          <% else %>
+          <%= image_tag current_user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
+          <% end %>
+          <li class="navelement"> <%= link_to "Dashboard", user_dashboard_path(current_user) %>
+            <span class="span"></span>
+          </li>
+          <li class="navelement"> <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  <span class="span"></span class="span"></li>
+        </ul>
+
+      <% else %>
+        <ul class="myul nav navbar-nav navbar-right">
+          <li class="navelement"><%= link_to "Sign up", new_user_registration_path %>
+            <span class="span"></span>
+          </li>
+          <li class="navelement"><%= link_to "Log in", new_user_session_path %>  <span class="span"></span> </li>
+        </ul>
+      <% end %>
+    </div>
+  </nav>

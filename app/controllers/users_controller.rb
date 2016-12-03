@@ -27,7 +27,6 @@ class UsersController < ApplicationController
     @users = policy_scope(User).tagged_with(main_skills).to_a
 
     @users.include?(current_user) ? @users.delete(current_user) :  @users
-    raise
   end
 
   def show
@@ -36,7 +35,21 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @skills = current_user.tag_list
     @user = current_user
     authorize @user
   end
+
+def add_skill
+  @skills = current_user.tag_list
+  @user = current_user
+  skill = params[:skill][:name].reject{|skill| skill.blank?}
+  @user.tag_list.add(skill)
+  authorize @user
+
+  if @user.save
+    render :dashboard
+  end
+end
+
 end

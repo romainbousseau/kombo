@@ -36,21 +36,32 @@
 
     <div class="col-md-6">
       <div id="skills">
-
         <h2> <%= image_tag("rewards.png", size: "30x30") %> Your skills </h2>
+          <% @skills.each do |skill| %>
+          <ul class="tags">
+            <li class="tag"><a href="#"><%= skill %></a></li>
+          </ul>
+          <% end %>
+         <%= simple_form_for :skill, method: "get", url: {action: :add_skill} do |f| %>
+    <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you want to add '}} %>
+     <%= f.submit "submit", class: "btn btn-primary"%>
+     <% end %>
       </div>
-
     </div>
 
     <div class="col-md-6">
       <div id="identity">
         <h2 style="text-align:center;"><%= image_tag("profile.png", size: "30x30") %> your profile </h2>
+        <p style="text-align:center;"> <%= @user.first_name%></p>
+        <p style="text-align:center;"> <%= @user.last_name%></p>
+
+       <p style="text-align:center;"> <%= link_to "edit", edit_user_registration_path, class: "btn btn-primary" %></p>
       </div>
     <!-- recupere la description linkedin -->
     </div>
 
   </div>
-
+<!--
   <div class="row">
 
     <div class="col-md-6">
@@ -65,10 +76,9 @@
       </div>
     </div>
 
+  </div> -->
+
 <style>
-
-
-
 
 
 .rad-info-box{
@@ -80,7 +90,6 @@
 
 .fa {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -102,20 +111,20 @@
     display: block;
     position: relative;
     color: #515d6e;
-    text-align: right;
+    text-align: center;
     z-index: 10;
   }
 
+
+
+/*icones du haut*/
   .rad-info-box i {
     display: block;
     background-clip: padding-box;
-    height: 60px;
-    width: 60px;
-    border-radius: 100%;
     line-height: 60px;
     text-align: center;
-    font-size: 4.4em;
-    position: absolute;
+    font-size: 2.4em;
+
 }
 
 .rad-txt-success {
@@ -161,14 +170,10 @@ transition: all 0.7s ease;
   transition: all 0.7s ease;
 }
 
-#skills:hover{
-border-radius:10%;
-box-shadow: 0 10px 6px -6px grey;
-}
 
 
 #identity{
-   padding: 10px;
+  padding: 10px;
   background-color: white;
   box-shadow: 1px 1px 0.2em #dedede;
   height: 50vh;
@@ -176,10 +181,6 @@ box-shadow: 0 10px 6px -6px grey;
   transition: all 0.7s ease;
 }
 
-#identity:hover{
-border-radius:10%;
-box-shadow: 0 10px 6px -6px grey;
-}
 
 #Rewards{
   padding: 10px;
@@ -187,11 +188,6 @@ box-shadow: 0 10px 6px -6px grey;
   box-shadow: 1px 1px 0.2em #dedede;
   height: 50vh;
   transition: all 0.7s ease;
-}
-
-#Rewards:hover{
-border-radius:10%;
-box-shadow: 0 10px 6px -6px grey;
 }
 
 
@@ -203,9 +199,63 @@ box-shadow: 0 10px 6px -6px grey;
   transition: all 0.7s ease;
 }
 
-#Activity:hover{
-border-radius:10%;
-box-shadow: 0 10px 6px -6px grey;
+
+.tags li {
+  list-style: none;
+}
+
+.tags {
+  list-style: none;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tag {
+  background: #D5EEFF;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  transition: color 0.2s;
+
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid #D5EEFF;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tag:hover {
+  background-color: #FF895D;
+  color: white;
+}
+
+.tag:hover::after {
+   border-left-color: #FF895D;
 }
 
 </style>
