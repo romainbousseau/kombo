@@ -15,14 +15,14 @@ class MatchesController < ApplicationController
 
   def create
     parameters = params[:match]
-    @solver_user = User.find(parameters[:user_id].to_i)
+    @solver_user = User.find(parameters[:solver_user_id].to_i)
     @problem_user = current_user
     @match = Match.new(match_params)
     @match.problem_user = @problem_user
     @match.solver_user = @solver_user
     authorize @match
     if @match.save
-      redirect_to matches_path(@match)
+      redirect_to match_path(@match)
     else
       render :new
     end
