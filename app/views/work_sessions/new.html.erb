@@ -1,15 +1,31 @@
-<h1 class="text-center">YOUR SEARCH</h1>
-<div class="container">
+<%= simple_form_for @work_session do |f| %>
+<div class="container" id='user-index'>
   <div class="row">
     <%= render 'users/index' %>
     <div class="col-xs-12 col-sm-8 user-show-container">
-      <%= render "users/user_card", user: @users.first %>
-    </div>
-  </div>
-  <div class="card">
-    <div class="brief text-center">
-      <%= render 'work_sessions/brief' %>
+      <% @users.each do |user| %>
+        <%= render "users/user_card", user: user %>
+      <% end %>
+      <%= f.hidden_field :solver_user_id %>
     </div>
   </div>
 </div>
 
+<div class="container hidden" id='brief'>
+  <div class="card">
+    <h3>Write a Brief</h3>
+    <div class="brief text-center">
+      <%= f.input :brief, :input_html => { :rows => 6 } %>
+    </div>
+  </div>
+</div>
+
+<div class="container hidden" id='datepicker'>
+  <div class="card">
+    <div class="datepicker-container">
+      <%= f.input :starts_at, as: :string, class: "datepicker" %>
+      <%= f.submit class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
+<% end %>

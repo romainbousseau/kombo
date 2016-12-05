@@ -11,7 +11,7 @@ class WorkSessionsController < ApplicationController
     @work_session = WorkSession.new
     @user = User.new
     authorize @work_session
-        parameters = params[:skill][:name]
+    parameters = params[:skill][:name]
     index_of_separator = parameters.each_index.select{|i| parameters[i] == ""}.pop
     main_skills =  []
     other_skills = []
