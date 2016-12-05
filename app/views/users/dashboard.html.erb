@@ -1,6 +1,6 @@
 <h1 style="text-align:center;">
   Welcome to your dashboard <%= @user.first_name %>
-  <a id="skill-field"><i class="fa fa-map-marker rad-txt-danger"></i> Marketing</a>
+  <a id="skill-field"><i class="fa fa-map-marker rad-txt-danger"></i> <%= @user.work_department %></a>
 </h1>
 <!-- transformer le departement en paramètre dynamique -->
 
@@ -36,14 +36,14 @@
 
     <div class="col-md-6">
       <div id="skills">
-        <h2> <%= image_tag("rewards.png", size: "30x30") %> Your skills </h2>
+        <h2 class="header_block"> Your skills </h2>
           <% @skills.each do |skill| %>
           <ul class="tags">
             <li class="tag"><a href="#"><%= skill %></a></li>
           </ul>
           <% end %>
          <%= simple_form_for :skill, method: "get", url: {action: :add_skill} do |f| %>
-    <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you want to add '}} %>
+    <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you want to add'}} %>
      <%= f.submit "submit", class: "btn btn-primary"%>
      <% end %>
       </div>
@@ -51,18 +51,16 @@
 
     <div class="col-md-6">
       <div id="identity">
-        <h2 style="text-align:center;"><%= image_tag("profile.png", size: "30x30") %> your profile </h2>
-        <p style="text-align:center;"> <%= @user.first_name%></p>
-        <p style="text-align:center;"> <%= @user.last_name%></p>
-
+        <h2 class="header_block"> Your profile </h2>
+        <p style="text-align:center;"> <%= @user.first_name%> <%= @user.last_name%></p>
+        <p style="text-align:justify;"> <%= @user.profile_description%></p>
        <p style="text-align:center;"> <%= link_to "edit", edit_user_registration_path, class: "btn btn-primary" %></p>
       </div>
     <!-- recupere la description linkedin -->
     </div>
 
   </div>
-<!--
-  <div class="row">
+<div class="row">
 
     <div class="col-md-6">
       <div id="Rewards">
@@ -76,10 +74,22 @@
       </div>
     </div>
 
-  </div> -->
+  </div>
 
 <style>
 
+
+
+
+.header_block{
+
+padding: 10px;
+background-color: #FF895D;
+opacity: 0.9;
+font-size: 20px;
+font-weight: bold;
+
+}
 
 .rad-info-box{
   padding: 10px;
@@ -161,7 +171,6 @@ transition: all 0.7s ease;
 }
 
 #skills{
-  padding: 10px;
   background-color: white;
   box-shadow: 1px 1px 0.2em #dedede;
   height: 50vh;
@@ -173,10 +182,11 @@ transition: all 0.7s ease;
 
 
 #identity{
-  padding: 10px;
+
   background-color: white;
   box-shadow: 1px 1px 0.2em #dedede;
   height: 50vh;
+  text-align: center;
   margin-bottom: 20px;
   transition: all 0.7s ease;
 }

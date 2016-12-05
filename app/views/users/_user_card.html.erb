@@ -10,9 +10,7 @@
         </div>
         <ul>
         <% user.tag_list.each do |skill| %>
-          <li class="tags">
-             <%= skill %>
-          </li>
+              <li class="tag"><a href="#"><%= skill %></a></li>
         <% end %>
         </ul>
       <% else %>
@@ -22,9 +20,7 @@
         </div>
         <ul>
         <% user.tag_list.each do |skill| %>
-          <li class="tags">
-             <%= skill %>
-          </li>
+    <li class="tag"><a href="#"><%= skill %></a></li>
         <% end %>
         </ul>
       <% end %>

@@ -40,6 +40,19 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+
+  def edit
+    @user = current_user(user_params)
+    authorize @user
+  end
+
+  def update_profile
+    raise
+    @user = current_user(user_params)
+    @user.update
+    authorize @user
+  end
+
 def add_skill
   @skills = current_user.tag_list
   @user = current_user
@@ -51,5 +64,11 @@ def add_skill
     render :dashboard
   end
 end
+
+private
+def user_params
+params.require(:user).permit(:first_name, :last_name, :work_department, :profile_description)
+end
+
 
 end
