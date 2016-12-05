@@ -1,4 +1,5 @@
-<%= simple_form_for @match do |f| %>
+<%= simple_form_for @match, controller: :match, action: :create do |f| %>
   <%= f.input :brief, :input_html => { :rows => 6 } %>
+  <%= f.hidden_field :solver_user_id %>
   <%= f.submit "add brief", class: "btn btn-primary" %>
 <% end %>

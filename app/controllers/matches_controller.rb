@@ -9,14 +9,20 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
+    @user = User.new
     authorize @match
   end
 
   def create
+    parameters = params[:match]
+    @solver_user = User.find(parameters[:solver_user_id].to_i)
+    @problem_user = current_user
     @match = Match.new(match_params)
+    @match.problem_user = @problem_user
+    @match.solver_user = @solver_user
     authorize @match
     if @match.save
-      redirect_to @match
+      redirect_to match_path(@match)
     else
       render :new
     end
@@ -42,6 +48,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:user_skills_id, :user_id, :starts_at, :brief, :duration, :accepted)
+    params.require(:match).permit(:solver_user_id, :problem_user_id, :brief)
   end
 end
