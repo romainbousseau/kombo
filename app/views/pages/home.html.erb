@@ -2,17 +2,20 @@
 
 
   <div class="banner-content">
-    <h1> Click & Match</h1>
+    <div class="box">
+    <h1 style="opacity:1;"> You're <span style="color: #FF895D"> Stuck </span> on something ?</h1>
+    <p style="font-size: 28px; color:white;"> Find a collegue with the skill you <span style="color: #FF895D"><strong> need ! </strong></span> </p>
     <!-- <h3>Main skills</h3> -->
     <%= simple_form_for :skill, method: "get", url: :users do |f| %>
     <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you need '}} %>
     <!-- <h3> Optional skills </h3>
-    <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you need '}} %>
+    <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'Select the skills you need '}} %>
  -->
 
     <%= f.submit "find match", class: "btn-mine" %>
     <% end %>
   </div>
+</div>
 </div>
 
 <% if user_signed_in? %>
@@ -47,3 +50,16 @@
     </div>
   </div>
 <% end %>
+
+
+<style>
+
+.box{
+
+padding : 20px;
+background-color: rgba(0, 0, 0, 0.2);
+border-radius: 10px;
+
+}
+
+</style>

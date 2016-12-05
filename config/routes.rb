@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  resources :users, only: [ :index, :show, :dashboard]do
+  resources :users, only: [ :index, :show, :dashboard, :edit] do
+    get 'update_profile', to: 'users#update_profile'
     get 'dashboard', to: 'users#dashboard'
     get 'add_skill', to: 'users#add_skill'
   end
