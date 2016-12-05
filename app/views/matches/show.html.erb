@@ -26,6 +26,14 @@
           <%= render 'chat', match: @match, message: @message %>
         </div>
       </div>
+      <div class="status text-center">
+          <% if @match.status == "pending" %>
+    <%= link_to "Validate", validate_match_path(@match), class: "btn btn-success", method: :post %>
+    <%= link_to "Decline", decline_match_path(@match), class: "btn btn-danger", method: :post %>
+  <% else %>
+    <%= link_to "Done", done_match_path(@match), class: "btn btn-warning", method: :post %>
+  <% end %>
+      </div>
     </div>
 
   </div>

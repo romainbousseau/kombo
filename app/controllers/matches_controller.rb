@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [ :show, :edit, :update ]
+  before_action :set_match, only: [ :show, :edit, :update, :validate, :decline, :done ]
 
   def show
     @message = Message.new
@@ -41,6 +41,24 @@ class MatchesController < ApplicationController
     end
   end
 
+  def validate
+  authorize @match
+  @match.update(status: "validate")
+  redirect_to match_path(@match)
+end
+
+def decline
+  authorize @match
+  @match.update(status: "decline")
+  redirect_to match_path(@match)
+end
+
+def done
+  authorize @match
+  @match.update(status: "done")
+  redirect_to match_path(@match)
+end
+
   private
 
   def set_match
@@ -48,6 +66,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:solver_user_id, :problem_user_id, :brief)
+    params.require(:match).permit(:solver_user_id, :problem_user_id, :brief, :status)
   end
 end
