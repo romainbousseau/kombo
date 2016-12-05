@@ -1,0 +1,15 @@
+<h1 class="text-center">YOUR SEARCH</h1>
+<div class="container">
+  <div class="row">
+    <%= render 'users/index' %>
+    <div class="col-xs-12 col-sm-8 user-show-container">
+      <%= render "users/user_card", user: @users.first %>
+    </div>
+  </div>
+  <div class="card">
+    <div class="brief text-center">
+      <%= render 'work_sessions/brief' %>
+    </div>
+  </div>
+</div>
+

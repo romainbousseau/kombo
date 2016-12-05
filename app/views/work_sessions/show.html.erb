@@ -1,4 +1,4 @@
-<h1 class="text-center">Your match</h1>
+<h1 class="text-center">Your Work Session</h1>
 <hr>
 <div class="container">
   <div class="row">
@@ -7,7 +7,7 @@
       <div class="card">
         <div class="brief text-center">
           <h2> Brief </h2>
-          <%= @match.brief %>
+          <%= @work_session.brief %>
         </div>
       </div>
        <div id="calendar" class="card"></div>
@@ -23,7 +23,7 @@
           <% end %>
         </div><br/>
         <div class="brief text-center">
-          <%= render 'chat', match: @match, message: @message %>
+          <%= render 'chat', work_session: @work_session, message: @message %>
         </div>
       </div>
     </div>

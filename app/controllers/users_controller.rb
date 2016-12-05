@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    #TODO Add a good filter to have users who match the main skills and the optional skills, now we just have the main skills
-    @match = Match.new
+    #TODO Add a good filter to have users who work_session the main skills and the optional skills, now we just have the main skills
+    @work_session = WorkSession.new
     @user = User.new
     parameters = params[:skill][:name]
     index_of_separator = parameters.each_index.select{|i| parameters[i] == ""}.pop

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home'
   resources :skills, only: [ :index ]
-  resources :matches, only: [ :new, :edit, :update, :show, :create ] do
+  resources :work_sessions, only: [ :new, :edit, :update, :show, :create ] do
     resources :messages, only: [:new, :create, :show]
   end
 end

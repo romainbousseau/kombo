@@ -10,32 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202225509) do
+ActiveRecord::Schema.define(version: 20161205152854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "matches", force: :cascade do |t|
-    t.datetime "starts_at"
-    t.integer  "duration"
-    t.text     "brief"
-    t.boolean  "accepted",        default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.integer  "problem_user_id"
-    t.integer  "solver_user_id"
-    t.index ["problem_user_id"], name: "index_matches_on_problem_user_id", using: :btree
-    t.index ["solver_user_id"], name: "index_matches_on_solver_user_id", using: :btree
-  end
-
   create_table "messages", force: :cascade do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "match_id"
-    t.index ["match_id"], name: "index_messages_on_match_id", using: :btree
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "work_session_id"
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+    t.index ["work_session_id"], name: "index_messages_on_work_session_id", using: :btree
   end
 
   create_table "skills", force: :cascade do |t|
@@ -92,6 +79,19 @@ ActiveRecord::Schema.define(version: 20161202225509) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "messages", "matches"
+  create_table "work_sessions", force: :cascade do |t|
+    t.datetime "starts_at"
+    t.integer  "duration"
+    t.text     "brief"
+    t.string   "status",          default: "pending"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "problem_user_id"
+    t.integer  "solver_user_id"
+    t.index ["problem_user_id"], name: "index_work_sessions_on_problem_user_id", using: :btree
+    t.index ["solver_user_id"], name: "index_work_sessions_on_solver_user_id", using: :btree
+  end
+
   add_foreign_key "messages", "users"
+  add_foreign_key "messages", "work_sessions"
 end
