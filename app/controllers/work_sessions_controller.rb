@@ -37,8 +37,7 @@ class WorkSessionsController < ApplicationController
   end
 
   def create
-    parameters = params[:work_session]
-    @solver_user = User.find(parameters[:solver_user_id].to_i)
+    @solver_user = User.find(params[:work_session][:solver_user_id])
     @problem_user = current_user
     @work_session = WorkSession.new(work_session_params)
     @work_session.problem_user = @problem_user

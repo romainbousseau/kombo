@@ -6,7 +6,7 @@
       <% @users.each do |user| %>
         <%= render "users/user_card", user: user %>
       <% end %>
-      <%= f.hidden_field :solver_user_id %>
+      <%= f.hidden_field :solver_user_id, id: 'solver_id' %>
     </div>
   </div>
 </div>
@@ -16,6 +16,7 @@
     <h3>Write a Brief</h3>
     <div class="brief text-center">
       <%= f.input :brief, :input_html => { :rows => 6 } %>
+      <%= link_to "Send Brief", "", class: 'btn btn-primary send-brief' %>
     </div>
   </div>
 </div>

@@ -4,14 +4,12 @@ $(document).ready(function(){
     $('.user-card').addClass('hidden');
     var userId = $(this).data("user-id");
     $('#user_card_' + userId).removeClass('hidden');
+    $("#solver_id").val(userId)
   });
 
   listenSelectUser();
 
-  $('#send-brief').click(function () {
-    $('#brief').addClass('hidden');
-    $('#datepicker').removeClass('hidden');
-  });
+  listenSendBrief();
 
   $( ".user" ).first().addClass('user-blue');
   $('.user-grey').click(function () {
@@ -25,9 +23,15 @@ $(document).ready(function(){
 function listenSelectUser() {
   $('.choose-user').click(function (e) {
     e.preventDefault();
-    console.log(e.isDefaultPrevented());
     $('#user-index').addClass('hidden');
     $('#brief').removeClass('hidden');
-    console.log('aie!')
+  });
+}
+
+function listenSendBrief() {
+  $('.send-brief').click(function(e) {
+    e.preventDefault();
+    $('#brief').addClass('hidden');
+    $('#datepicker').removeClass('hidden');
   });
 }
