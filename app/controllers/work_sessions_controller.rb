@@ -78,6 +78,9 @@ class WorkSessionsController < ApplicationController
   def done
     authorize @work_session
     @work_session.update(status: "done")
+    @solver_user = @work_session.solver_user
+    @solver_user.points += 50
+    @solver_user.save
     redirect_to work_session_path(@work_session)
   end
 
