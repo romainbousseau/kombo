@@ -2,7 +2,6 @@
   Welcome to your dashboard <%= @user.first_name %>
   <a id="skill-field"><i class="fa fa-map-marker rad-txt-danger"></i> <%= @user.work_department %></a>
 </h1>
-<!-- transformer le departement en paramètre dynamique -->
 
 <div class="container">
 
@@ -11,14 +10,14 @@
         <div class="rad-info-box rad-txt-success">
           <i class="fa fa-gift"></i>
           <span class="heading">Earned Points</span>
-          <span class="value"><span>4949</span></span>
+          <span class="value"><span><%= current_user.points %></span></span>
         </div>
       </div>
       <div class="col-md-4 col-xs-6">
         <div class="rad-info-box rad-txt-primary">
           <i class="fa fa-user-plus"></i>
           <span class="heading">People you helped</span>
-          <span class="value"><span>23</span></span>
+          <span class="value"><span><%= @sessions.length %></span></span>
         </div>
       </div>
       <div class="col-md-4 col-xs-6">
@@ -50,222 +49,44 @@
     </div>
 
     <div class="col-md-6">
+      <div id="Activity">
+      <h2 style="text-align:center;" class="header_block"><%= image_tag("calendar.png", size: "30x30") %>  your schedule </h2>
+<ol class="activity-feed">
+  <li class="feed-item">
+    <time class="date">Sep 25</time>
+    <span class="text">Responded to need <a href="#"> "Need SEO advise for new page"</a></span><br>
+    <span class="text">Responded to need <a href="#"> "Need SEA advise for new page"</a></span>
+  </li>
+  <li class="feed-item">
+    <time class="date" datetime="9-23">Sep 23</time>
+    <span class="text">Accepted the task<a href="#"> “Need a excel expert”</a></span>
+  </li>
+  <li class="feed-item">
+    <time class="date" datetime="9-21">Sep 21</time>
+    <span class="text">Your need has been taken by <a href="#">“Cedric Njanga”</a></span>
+  </li>
+</ol>
+      </div>
+    </div>
+
+
+  </div>
+ <div class="row">
+<!--
+    <div class="col-md-6">
+      <div id="Rewards">
+      <h2 style="text-align:center;"> <%= image_tag("trophy.png", size: "30x30") %> your rewards </h2>
+      </div>
+    </div> -->
+
+      <!--   <div class="col-md-6">
       <div id="identity">
         <h2 class="header_block"> Your profile </h2>
         <p style="text-align:center;"> <%= @user.first_name%> <%= @user.last_name%></p>
         <p style="text-align:justify;"> <%= @user.profile_description%></p>
        <p style="text-align:center;"> <%= link_to "edit", edit_user_registration_path, class: "btn btn-primary" %></p>
       </div>
-    <!-- recupere la description linkedin -->
-    </div>
+    </div> -->
+
 
   </div>
-<!-- <div class="row">
-
-    <div class="col-md-6">
-      <div id="Rewards">
-      <h2 style="text-align:center;"> <%= image_tag("trophy.png", size: "30x30") %> your rewards </h2>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div id="Activity">
-      <h2 style="text-align:center;"><%= image_tag("calendar.png", size: "30x30") %>  your schedule </h2>
-      </div>
-    </div>
-
-  </div> -->
-
-<style>
-
-
-
-
-.header_block{
-
-padding: 10px;
-background-color: #FF895D;
-opacity: 0.9;
-font-size: 20px;
-font-weight: bold;
-
-}
-
-.rad-info-box{
-  padding: 10px;
-  background-color: white;
-  box-shadow: 1px 1px 0.2em #dedede;
-}
-
-
-.fa {
-    display: inline-block;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-}
-
-.fa-calendar{
-
-  color: red;
-}
-
-.rad-info-box .heading {
-    font-size: 1.2em;
-    font-weight: 300;
-    text-transform: uppercase;
-}
-
-
-.rad-info-box .value, .rad-info-box .heading {
-    display: block;
-    position: relative;
-    color: #515d6e;
-    text-align: center;
-    z-index: 10;
-  }
-
-
-
-/*icones du haut*/
-  .rad-info-box i {
-    display: block;
-    background-clip: padding-box;
-    line-height: 60px;
-    text-align: center;
-    font-size: 2.4em;
-
-}
-
-.rad-txt-success {
-    color:#FF895D;
-    transition: all 0.7s ease;
-    box-shadow: 1px;
-}
-
-.rad-txt-success:hover {
-    transform:scale(1.1);
-}
-
-
-.rad-txt-primary {
-    color:#FF895D;
-    transition: all 0.7s ease;
-}
-
-.rad-txt-primary:hover {
-    transform:scale(1.1);
-}
-
-.rad-txt-danger{
-color:#FF895D;
-transition: all 0.7s ease;
-}
-
-.rad-txt-danger:hover {
-    transform:scale(1.1);
-}
-
-#skill-field{
- font-size: 20px;
-}
-
-#skills{
-  background-color: white;
-  box-shadow: 1px 1px 0.2em #dedede;
-  height: 50vh;
-  text-align: center;
-  margin-bottom: 20px;
-  transition: all 0.7s ease;
-}
-
-
-
-#identity{
-
-  background-color: white;
-  box-shadow: 1px 1px 0.2em #dedede;
-  height: 50vh;
-  text-align: center;
-  margin-bottom: 20px;
-  transition: all 0.7s ease;
-}
-
-
-#Rewards{
-  padding: 10px;
-  background-color: white;
-  box-shadow: 1px 1px 0.2em #dedede;
-  height: 50vh;
-  transition: all 0.7s ease;
-}
-
-
-#Activity{
-  padding: 10px;
-  background-color: white;
-  box-shadow: 1px 1px 0.2em #dedede;
-  height: 50vh;
-  transition: all 0.7s ease;
-}
-
-
-.tags li {
-  list-style: none;
-}
-
-.tags {
-  list-style: none;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0;
-}
-
-.tag {
-  background: #D5EEFF;
-  border-radius: 3px 0 0 3px;
-  color: #999;
-  display: inline-block;
-  height: 26px;
-  line-height: 26px;
-  padding: 0 20px 0 23px;
-  position: relative;
-  margin: 0 10px 10px 0;
-  text-decoration: none;
-  transition: color 0.2s;
-
-}
-
-.tag::before {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
-  content: '';
-  height: 6px;
-  left: 10px;
-  position: absolute;
-  width: 6px;
-  top: 10px;
-}
-
-.tag::after {
-  background: #fff;
-  border-bottom: 13px solid transparent;
-  border-left: 10px solid #D5EEFF;
-  border-top: 13px solid transparent;
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.tag:hover {
-  background-color: #FF895D;
-  color: white;
-}
-
-.tag:hover::after {
-   border-left-color: #FF895D;
-}
-
-</style>
