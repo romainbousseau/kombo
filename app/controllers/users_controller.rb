@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def dashboard
     @skills = current_user.tag_list
     @user = current_user
+    @sessions = WorkSession.where(current_user.id == params[:solver_user_id])
     authorize @user
   end
 
