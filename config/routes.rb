@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :skills, only: [ :index ]
   resources :work_sessions, only: [ :new, :edit, :update, :show, :create ] do
+    member do
+      post 'validate'
+      post 'decline'
+      post 'done'
+    end
     resources :messages, only: [:new, :create, :show]
   end
 end

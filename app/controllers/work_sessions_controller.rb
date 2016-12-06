@@ -1,5 +1,5 @@
 class WorkSessionsController < ApplicationController
-  before_action :set_work_session, only: [ :show, :edit, :update ]
+  before_action :set_work_session, only: [ :show, :edit, :update, :validate, :decline, :done ]
 
   def show
     @message = Message.new
@@ -63,6 +63,24 @@ class WorkSessionsController < ApplicationController
     end
   end
 
+  def validate
+    authorize @work_session
+    @work_session.update(status: "validate")
+    redirect_to work_session_path(@work_session)
+  end
+
+  def decline
+    authorize @work_session
+    @work_session.update(status: "decline")
+    redirect_to work_session_path(@work_session)
+  end
+
+  def done
+    authorize @work_session
+    @work_session.update(status: "done")
+    redirect_to work_session_path(@work_session)
+  end
+
   private
 
   def set_work_session
@@ -70,6 +88,6 @@ class WorkSessionsController < ApplicationController
   end
 
   def work_session_params
-    params.require(:work_session).permit(:solver_user_id, :problem_user_id, :brief)
+    params.require(:work_session).permit(:solver_user_id, :problem_user_id, :brief, :status)
   end
 end
