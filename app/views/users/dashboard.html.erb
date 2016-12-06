@@ -50,31 +50,33 @@
     </div>
 
     <div class="col-md-6">
+      <div id="Activity">
+      <h2 style="text-align:center;" class="header_block"><%= image_tag("calendar.png", size: "30x30") %>  your schedule </h2>
+
+      </div>
+    </div>
+
+
+  </div>
+ <div class="row">
+<!--
+    <div class="col-md-6">
+      <div id="Rewards">
+      <h2 style="text-align:center;"> <%= image_tag("trophy.png", size: "30x30") %> your rewards </h2>
+      </div>
+    </div> -->
+
+      <!--   <div class="col-md-6">
       <div id="identity">
         <h2 class="header_block"> Your profile </h2>
         <p style="text-align:center;"> <%= @user.first_name%> <%= @user.last_name%></p>
         <p style="text-align:justify;"> <%= @user.profile_description%></p>
        <p style="text-align:center;"> <%= link_to "edit", edit_user_registration_path, class: "btn btn-primary" %></p>
       </div>
-    <!-- recupere la description linkedin -->
-    </div>
+    </div> -->
+
 
   </div>
-<!-- <div class="row">
-
-    <div class="col-md-6">
-      <div id="Rewards">
-      <h2 style="text-align:center;"> <%= image_tag("trophy.png", size: "30x30") %> your rewards </h2>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div id="Activity">
-      <h2 style="text-align:center;"><%= image_tag("calendar.png", size: "30x30") %>  your schedule </h2>
-      </div>
-    </div>
-
-  </div> -->
 
 <style>
 
@@ -202,7 +204,6 @@ transition: all 0.7s ease;
 
 
 #Activity{
-  padding: 10px;
   background-color: white;
   box-shadow: 1px 1px 0.2em #dedede;
   height: 50vh;
