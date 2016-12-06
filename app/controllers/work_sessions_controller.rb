@@ -70,6 +70,6 @@ class WorkSessionsController < ApplicationController
   end
 
   def work_session_params
-    params.require(:work_session).permit(:solver_user_id, :problem_user_id, :brief)
+    params.require(:work_session).permit(:solver_user_id, :problem_user_id, :brief, :starts_at)
   end
 end

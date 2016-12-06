@@ -3,8 +3,8 @@ $(document).ready(function(){
     $('.datepicker').datepicker({
         startDate: "today",
         weekStart: 1,
-        format: 'dd/mm/yyyy',
+        format: 'dd/mm',
         todayHighlight: true,
-        autoclose: true
+        autoclose: true,
     })
 });
