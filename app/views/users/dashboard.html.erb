@@ -2,7 +2,6 @@
   Welcome to your dashboard <%= @user.first_name %>
   <a id="skill-field"><i class="fa fa-map-marker rad-txt-danger"></i> <%= @user.work_department %></a>
 </h1>
-<!-- transformer le departement en paramètre dynamique -->
 
 <div class="container">
 
@@ -54,7 +53,7 @@
       <h2 style="text-align:center;" class="header_block"><%= image_tag("calendar.png", size: "30x30") %>  your schedule </h2>
 <ol class="activity-feed">
   <li class="feed-item">
-    <time class="date" datetime="9-25">Sep 25</time>
+    <time class="date">Sep 25</time>
     <span class="text">Responded to need <a href="#"> "Need SEO advise for new page"</a></span><br>
     <span class="text">Responded to need <a href="#"> "Need SEA advise for new page"</a></span>
   </li>

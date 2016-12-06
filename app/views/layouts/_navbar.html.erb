@@ -20,11 +20,11 @@
           <% if current_user.linkedin_picture_url.nil? %>
             <% if current_user.photo.nil? %>
               <%= link_to edit_user_registration_path do %>
-                <%=image_tag "http://placehold.it/30x30", class: "avatar" %>
+                <%= image_tag "http://placehold.it/30x30", class: "avatar" %>
               <% end %>
             <% else %>
                 <%= link_to edit_user_registration_path do %>
-                  <%= cl_image_tag current_user.linkedin_picture_url, width: 30, height: 30, crop: :fill, class: "avatar" %>
+                  <%= cl_image_tag current_user.photo.path, width: 30, height: 30, crop: :fill, class: "avatar" %>
                 <%end%>
             <% end %>
           <% else %>
