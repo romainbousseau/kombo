@@ -11,6 +11,8 @@ $(document).ready(function(){
 
   listenSelectUser();
 
+  $('#brief-editor').froalaEditor()
+
   listenSendBrief();
 
   $( ".user" ).first().addClass('user-blue');
