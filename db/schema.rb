@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 20161205152854) do
     t.datetime "starts_at"
     t.integer  "duration"
     t.text     "brief"
-    t.boolean  "accepted",        default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "status",          default: "pending"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "problem_user_id"
     t.integer  "solver_user_id"
     t.index ["problem_user_id"], name: "index_work_sessions_on_problem_user_id", using: :btree
