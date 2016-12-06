@@ -18,8 +18,14 @@
           </li>
 
           <% if current_user.linkedin_picture_url.nil? %>
-            <%= link_to edit_user_registration_path do %>
-              <%=image_tag "http://placehold.it/30x30", class: "avatar" %>
+            <% if current_user.photo.nil? %>
+              <%= link_to edit_user_registration_path do %>
+                <%=image_tag "http://placehold.it/30x30", class: "avatar" %>
+              <% end %>
+            <% else %>
+                <%= link_to edit_user_registration_path do %>
+                  <%= cl_image_tag current_user.linkedin_picture_url, width: 30, height: 30, crop: :fill, class: "avatar" %>
+                <%end%>
             <% end %>
           <% else %>
             <%= link_to edit_user_registration_path do %>
