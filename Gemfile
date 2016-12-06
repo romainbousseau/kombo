@@ -10,6 +10,9 @@ gem 'devise'
 gem 'redis'
 gem 'pundit'
 gem 'chosen-rails'
+source "https://rails-assets.org" do
+  gem 'rails-assets-bootstrap-datepicker'
+end
 
 gem 'sass-rails'
 gem 'jquery-rails'

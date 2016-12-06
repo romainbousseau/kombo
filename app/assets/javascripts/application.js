@@ -4,4 +4,5 @@
 //= require moment
 //= require fullcalendar
 //= require chosen-jquery
+//= require bootstrap-datepicker
 //= require_tree .

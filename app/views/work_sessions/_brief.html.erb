@@ -1,5 +1,0 @@
-<%= simple_form_for @work_session, controller: :work_session, action: :create do |f| %>
-  <%= f.input :brief, :input_html => { :rows => 6 } %>
-  <%= f.hidden_field :solver_user_id %>
-  <%= f.submit "add brief", class: "btn btn-primary" %>
-<% end %>
