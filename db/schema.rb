@@ -10,27 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205150444) do
+ActiveRecord::Schema.define(version: 20161205152854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "chat_rooms", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "match_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["match_id"], name: "index_chat_rooms_on_match_id", using: :btree
-  end
-
   create_table "messages", force: :cascade do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "chat_room_id"
-    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id", using: :btree
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "work_session_id"
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+    t.index ["work_session_id"], name: "index_messages_on_work_session_id", using: :btree
   end
 
   create_table "skills", force: :cascade do |t|
@@ -98,14 +90,10 @@ ActiveRecord::Schema.define(version: 20161205150444) do
     t.datetime "updated_at",                      null: false
     t.integer  "problem_user_id"
     t.integer  "solver_user_id"
-    t.integer  "chat_room_id"
-    t.index ["chat_room_id"], name: "index_work_sessions_on_chat_room_id", using: :btree
     t.index ["problem_user_id"], name: "index_work_sessions_on_problem_user_id", using: :btree
     t.index ["solver_user_id"], name: "index_work_sessions_on_solver_user_id", using: :btree
   end
 
-  add_foreign_key "chat_rooms", "work_sessions", column: "match_id"
-  add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "work_sessions", "chat_rooms"
+  add_foreign_key "messages", "work_sessions"
 end
