@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('.datepicker').datepicker({
         startDate: "today",
         weekStart: 1,
-        format: 'yyyy/dd/mm',
+        format: 'dd/mm/yyyy',
         todayHighlight: true,
         autoclose: true,
     })
