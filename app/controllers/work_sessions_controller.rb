@@ -1,8 +1,9 @@
 class WorkSessionsController < ApplicationController
-  before_action :set_work_session, only: [ :show, :edit, :update ]
+  before_action :set_work_session, only: [:edit, :update ]
 
   def show
     @message = Message.new
+    @work_session = WorkSession.find_by(slug: params[:slug])
     @conversation = Message.where(work_session_id: @work_session.id)
     authorize @work_session
   end

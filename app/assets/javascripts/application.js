@@ -5,4 +5,5 @@
 //= require fullcalendar
 //= require chosen-jquery
 //= require bootstrap-datepicker
+//= require_tree ./channels
 //= require_tree .

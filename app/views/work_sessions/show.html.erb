@@ -12,21 +12,7 @@
       </div>
        <div id="calendar" class="card"></div>
     </div>
-     <div class="col-xs-12 col-sm-4">
-      <div id="chat" class="card">
-        <div id="chat-content">
-          <% @conversation.each do |message| %>
-          <div class="<%= message.user == current_user ? 'message_from_current_user' : 'message_from_other_user' %>">
-            <p class="username"> <%= message.user.first_name %> </p>
-            <p class="message_text"> <%= message.content %> </p>
-          </div>
-          <% end %>
-        </div><br/>
-        <div class="brief text-center">
-          <%= render 'chat', work_session: @work_session, message: @message %>
-        </div>
-      </div>
-    </div>
+    <%= render 'chat', work_session: @work_session, message: @message %> 
 
   </div>
   </div>

@@ -21,6 +21,10 @@ class MessagesController < ApplicationController
      respond_to do |format|
        format.html { redirect_to work_session_path(@work_session) }
        format.js  # <-- will render `app/views/messages/create.js.erb`
+       ActionCable.server.broadcast 'messages',
+        message: message.content,
+        user: message.user.first_name
+      head :ok
      end
    else
      respond_to do |format|
@@ -33,7 +37,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :work_session_id)
   end
 
   def find_work_session
