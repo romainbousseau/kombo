@@ -36,6 +36,16 @@
           </div>
         </div>
       </div>
+      <% if current_user.id == @work_session.solver_user_id %>
+        <% if @work_session.status == "pending" %>
+          <%= link_to "Validate", validate_work_session_path(@work_session), class: "btn btn-success", method: :post %>
+          <%= link_to "Decline", decline_work_session_path(@work_session), class: "btn btn-danger", method: :post %>
+        <% end %>
+        <% elsif current_user.id == @work_session.problem_user_id %>
+          <% if @work_session.status == "validate" %>
+            <%= link_to "Done", done_work_session_path(@work_session), class: "btn btn-warning", method: :post %>
+          <% end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -16,4 +16,16 @@ class WorkSessionPolicy < ApplicationPolicy
   def show
     true
   end
+
+  def validate?
+    true
+  end
+
+  def decline?
+    true
+  end
+
+  def done?
+    true
+  end
 end
