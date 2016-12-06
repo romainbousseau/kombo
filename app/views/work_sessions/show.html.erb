@@ -18,7 +18,9 @@
         <div class="card">
           <div class="brief text-center">
             <h2> Brief </h2>
-            <%= @work_session.brief %>
+            <div class="fr-view">
+              <%= @work_session.brief.html_safe %>
+            </div>
           </div>
         </div>
       </div>
