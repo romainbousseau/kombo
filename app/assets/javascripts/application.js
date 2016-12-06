@@ -5,6 +5,7 @@
 //= require fullcalendar
 //= require chosen-jquery
 //= require bootstrap-datepicker
+//= require_tree ./channels
 //= require froala_editor.min.js
 //= require plugins/file.min.js
 //= require plugins/url.min.js
