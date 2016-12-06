@@ -6,20 +6,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
-@import "froala_editor.min.css";
-@import "froala_style.min.css";
-@import "plugins/colors.min.css";
-@import "plugins/emoticons.min.css";
-@import "plugins/file.min.css";
 @import "font-awesome";
 @import "bootstrap-datepicker";
+@import "froala_editor.min";
+@import "froala_style.min";
 
 // Your CSS
 @import "layout/index";
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
-
 @import "fullcalendar";
 @import "chosen";
 
