@@ -1,4 +1,4 @@
-<div class="user-card card <%= user == @users.first ? "" : "hidden" %>" id="user_card_<%= user.id %>" data-user-id="<%= user.id %>">
+<div class="user-card card <%= user == @users.first ? "first-user" : "hidden" %>" id="user_card_<%= user.id %>" data-user-id="<%= user.id %>">
   <div class="user-profile">
     <% if user.nil? %>
     <% else %>

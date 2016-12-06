@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  var firstUserId = $('.first-user').data('user-id');
+  $("#solver_id").val(firstUserId);
   $('.select-user-link').click(function(e) {
     e.preventDefault();
     $('.user-card').addClass('hidden');
