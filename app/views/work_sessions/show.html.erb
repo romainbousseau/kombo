@@ -6,10 +6,12 @@
       <div class="col-xs-12 col-sm-8">
         <div class="card text-center">
           <h2>Recap</h2>
-          <%= image_tag "http://placehold.it/100x100" %>
-          <i class="fa fa-arrows-h fa-2x" aria-hidden="true"></i>
-          <%= image_tag "http://placehold.it/100x100" %>
-          <p>Status: <%= @work_session.accepted %></p>
+          <div id="buddies">
+            <%= image_tag "http://placehold.it/100x100" %>
+            <i class="fa fa-arrows-h fa-2x" aria-hidden="true"></i>
+            <%= image_tag "http://placehold.it/100x100" %>
+          </div>
+          <p>Status: <%= @work_session.status.capitalize %></p>
           <p><%= @work_session.starts_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
         </div>
 
