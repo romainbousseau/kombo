@@ -11,7 +11,7 @@ class WorkSessionsController < ApplicationController
     @work_session = WorkSession.new
     @user = User.new
     authorize @work_session
-        parameters = params[:skill][:name]
+    parameters = params[:skill][:name]
     index_of_separator = parameters.each_index.select{|i| parameters[i] == ""}.pop
     main_skills =  []
     other_skills = []
@@ -37,8 +37,7 @@ class WorkSessionsController < ApplicationController
   end
 
   def create
-    parameters = params[:work_session]
-    @solver_user = User.find(parameters[:solver_user_id].to_i)
+    @solver_user = User.find(params[:work_session][:solver_user_id])
     @problem_user = current_user
     @work_session = WorkSession.new(work_session_params)
     @work_session.problem_user = @problem_user

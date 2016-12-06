@@ -1,5 +1,4 @@
-<div class="card">
-  <h3 class="text-center">show user</h3>
+<div class="user-card card <%= user == @users.first ? "first-user" : "hidden" %>" id="user_card_<%= user.id %>" data-user-id="<%= user.id %>">
   <div class="user-profile">
     <% if user.nil? %>
     <% else %>
@@ -24,6 +23,9 @@
         <% end %>
         </ul>
       <% end %>
+      <div class="choose-user">
+        <%= link_to "Work with #{user.first_name}", "", id: "choose-user", class: "choose-user btn btn-primary" %>
+      </div>
     <% end %>
   </div>
 </div>
