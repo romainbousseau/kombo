@@ -14,12 +14,16 @@ body {
 }
 
 .message_from_other_user {
-  background-color: #62CE82;
+  background-color: #F99471;
   color: white;
   margin: 10px;
-  padding: 5px;
+  padding: 3px;
   width: 70%;
-  margin-left: 28%
+  margin-left: 28%;
+  border-radius: 4px;
+  p {
+    margin: 0 5px 11px;
+  }
 }
 
 .message_text {

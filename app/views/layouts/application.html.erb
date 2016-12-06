@@ -17,6 +17,7 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
+    <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag "application-print", :media => "print" %>
     <%= yield(:after_js) %>
   </body>

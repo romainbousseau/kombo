@@ -5,6 +5,6 @@ $(document).ready(function(){
         weekStart: 1,
         format: 'dd/mm/yyyy',
         todayHighlight: true,
-        autoclose: true
+        autoclose: true,
     })
 });
