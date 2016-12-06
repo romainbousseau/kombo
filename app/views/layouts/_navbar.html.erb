@@ -20,7 +20,7 @@
           <% if current_user.linkedin_picture_url.nil? %>
             <% if current_user.photo.nil? %>
               <%= link_to edit_user_registration_path do %>
-                <%= image_tag "http://placehold.it/30x30", class: "avatar" %>
+                <%= image_tag "profile_default.png", class: "avatar" %>
               <% end %>
             <% else %>
                 <%= link_to edit_user_registration_path do %>
