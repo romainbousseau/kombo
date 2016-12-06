@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206110507) do
+ActiveRecord::Schema.define(version: 20161206200456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20161206110507) do
   create_table "messages", force: :cascade do |t|
     t.string   "content"
     t.integer  "user_id"
+    t.integer  "work_session_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "work_session_id"
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
     t.index ["work_session_id"], name: "index_messages_on_work_session_id", using: :btree
   end
