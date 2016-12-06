@@ -1,8 +1,8 @@
-<!-- <div class="col-xs-12 col-sm-4">
+<div class="col-xs-12 col-sm-4">
  <div id="chat" class="card">
-   <div id="chat-content">
+   <div id="chat-content" class="<%= current_user.id %>">
      <% @conversation.each do |message| %>
-     <div class="<%= message.user == current_user ? 'message_from_current_user' : 'message_from_other_user' %>">
+     <div class="<%= message.user == current_user ? 'message_from_current_user current_user' : 'message_from_other_user other_user' %>">
        <p class="username"> <%= message.user.first_name %> </p>
        <p class="message_text"> <%= message.content %> </p>
      </div>
@@ -12,22 +12,4 @@
      <%= render partial: 'messages/message_form', locals: {message: @message, work_session: @work_session}%>
    </div>
  </div>
-</div>
- -->
-
-<div class="row col-md-8 col-md-offset-2">
-  <!-- <h1><%= @work_session.topic %></h1> -->
-
-<div class="panel panel-default">
-  <% if @work_session.messages.any? %>
-    <div class="panel-body" id="messages">
-      <%= render partial: 'messages/message', collection: @work_session.messages%>
-    </div>
-  <%else%>
-    <div class="panel-body hidden" id="messages">
-    </div>
-  <%end%>
-</div>
-
-  <%= render partial: 'messages/message_form', locals: {message: @message, work_session: @work_session}%>
 </div>

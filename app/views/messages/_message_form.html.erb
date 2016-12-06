@@ -9,10 +9,10 @@
 <% end %>
 
 
-<!-- <%= form_for message, remote: true, authenticity_token: true do |f| %>
+<!-- <%= form_for [work_session, message], remote: true, authenticity_token: true do |f| %>
   <%= f.label :your_message %>:
   <%= f.text_area :content, class: "form-control", data: {textarea: "message"} %>
 
-  <%= f.hidden_field :chatroom_id, value: chatroom.id %>
+  <%= f.hidden_field :work_session_id, value: work_session.id %>
   <%= f.submit "send", class: "btn btn-primary", style: "display: none", data: {send: "message"} %>
 <% end %> -->

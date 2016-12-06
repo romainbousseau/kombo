@@ -18,14 +18,15 @@ class MessagesController < ApplicationController
     authorize @message
 
     if @message.save
-     respond_to do |format|
-       format.html { redirect_to work_session_path(@work_session) }
-       format.js  # <-- will render `app/views/messages/create.js.erb`
-       ActionCable.server.broadcast 'messages',
-        message: message.content,
-        user: message.user.first_name
-      head :ok
-     end
+      ActionCable.server.broadcast 'messages',
+        message: @message.content,
+        user: @message.user.first_name,
+        user_id: @message.user.id,
+        time: Time.now
+      respond_to do |format|
+        format.html { redirect_to work_session_path(@work_session) }
+        format.js  # <-- will render `app/views/messages/create.js.erb`
+      end
    else
      respond_to do |format|
        format.html { render 'work_sessions/show' }
