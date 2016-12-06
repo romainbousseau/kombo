@@ -1,4 +1,3 @@
-<div class="col-xs-12 col-sm-4">
  <div id="chat" class="card">
    <div id="chat-content" class="<%= current_user.id %>">
      <% @conversation.each do |message| %>
@@ -12,4 +11,3 @@
      <%= render partial: 'messages/message_form', locals: {message: @message, work_session: @work_session}%>
    </div>
  </div>
-</div>

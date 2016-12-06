@@ -12,10 +12,20 @@
       </div>
        <div id="calendar" class="card"></div>
     </div>
-    <%= render 'chat', work_session: @work_session, message: @message %>
-  </div>
-  </div>
-</div>
+    <div class="col-xs-12 col-sm-4">
+      <%= render 'chat', work_session: @work_session, message: @message %>
+      <% if current_user.id == @work_session.solver_user_id %>
+        <% if @work_session.status == "pending" %>
+          <%= link_to "Validate", validate_work_session_path(@work_session), class: "btn btn-success", method: :post %>
+          <%= link_to "Decline", decline_work_session_path(@work_session), class: "btn btn-danger", method: :post %>
+        <% end %>
+      <% elsif current_user.id == @work_session.problem_user_id %>
+        <% if @work_session.status == "validate" %>
+          <%= link_to "Done", done_work_session_path(@work_session), class: "btn btn-warning", method: :post %>
+        <% end %>
+      <% end %>
+    </div>
+
 <%= content_for(:after_js) do %>
   <script>
 

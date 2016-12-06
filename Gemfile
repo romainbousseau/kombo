@@ -27,6 +27,7 @@ gem 'acts-as-taggable-on', '~> 4.0'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem "wysiwyg-rails"
 
 group :development, :test do
   gem 'binding_of_caller'
