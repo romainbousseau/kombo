@@ -32,21 +32,25 @@
     <div class="col-md-6">
       <div id="skills">
         <h2 class="header_block"> Your skills </h2>
-          <% @skills.each do |skill| %>
-          <ul class="tags">
-            <li class="tag"><a href="#"><%= skill %></a></li>
-          </ul>
+          <div class="tags-container text-left">
+            <% @skills.each do |skill| %>
+            <ul class="tags">
+              <li class="tag"><a href="#"><%= skill %></a></li>
+            </ul>
+            <% end %>
+          </div>
+          <%= simple_form_for :skill, method: "get", url: {action: :add_skill} do |f| %>
+            <div class="form-actions">
+              <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you want to add'}} %>
+              <%= f.submit "submit", class: "btn btn-primary"%>
+            </div>
           <% end %>
-         <%= simple_form_for :skill, method: "get", url: {action: :add_skill} do |f| %>
-    <%= f.input :name, label: false, as: :select, collection: Skill.all.map { |skill| [skill.name, skill.name] }, input_html: { rows: 6, class: "chosen-select", multiple: true, :data => { :placeholder => 'select the skills you want to add'}} %>
-     <%= f.submit "submit", class: "btn btn-primary"%>
-     <% end %>
       </div>
     </div>
 
     <div class="col-md-6">
       <div id="Activity">
-      <h2 style="text-align:center;" class="header_block"><%= image_tag("calendar.png", size: "30x30") %>  your schedule </h2>
+      <h2 style="text-align:center;" class="header_block"> Your schedule </h2>
 <ol class="activity-feed">
   <li class="feed-item">
     <time class="date">Sep 25</time>
