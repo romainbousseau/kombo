@@ -18,5 +18,5 @@ stephane.tag_list.add('web designer', 'content manager', 'sea')
 stephane.save!
 
 
-skills = ["seo", "sea", "product manager", "analytics", "programmatic", "data analyst", "developer", "content manager", "revemue manager", "web designer"]
+skills = ["Seo", "Sea", "Product management", "Analytics", "Programmatic", "Data analyst", "Developer", "Dontent manager", "revenue management", "web designer", "AT internet", "Mediametrie", "ACPM", "Adobe analytics", "Enterprise analytics - comscore","Funnel conversion", "Tagging plan", "Acquisition", "Growth hacking", "Affiliation", "Lead management", "Traffic management", "Brand content", "Digital Brand Manager", "CRM", "datamining", "UX design", "UI design", "Social media management", "Digital communication", "lean management","Excel", "Microsoft office", "Adwords", "Photoshop", "ruby", "javascript", "Indesign", "HTML/CSS", "Python", "PHP", "Swift", "SQL", "C++", "JAVA", "C", "Ads management", "Web integration", "Project management", "Data analyst", "Email marketing","logistic", "A/B testing", "Design thinking" ]
 skills.each {|skill| Skill.create!(name: skill)}
