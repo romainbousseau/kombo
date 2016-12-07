@@ -5,14 +5,14 @@ before_action :find_work_session, only: [:new, :create]
   end
 
   def create
-    @review.new(review_params)
+    @review = Review.new(review_params)
     @review.work_session = @work_session
 
     authorize @review
 
     if @review.save
       respond_to do |format|
-        format.html { redirect_to work_session_path(@work_session) }
+        format.html { redirect_to user_dashboard_path(@work_session.problem_user) }
         format.js  # <-- will render `app/views/messages/create.js.erb`
       end
    else
@@ -26,7 +26,7 @@ before_action :find_work_session, only: [:new, :create]
   private
 
   def review_params
-    params.require(:message).permit(:content, :work_session_id)
+    params.require(:review).permit(:content, :work_session_id)
   end
 
   def find_work_session
