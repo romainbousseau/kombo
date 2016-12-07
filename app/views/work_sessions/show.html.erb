@@ -12,7 +12,7 @@
             <%= image_tag "http://placehold.it/100x100" %>
           </div>
           <p>Status: <%= @work_session.status.capitalize %></p>
-          <p><%= @work_session.starts_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
+          <p><%= @work_session.starts_at.strftime("%A %e %B %Y ") %></p>
         </div>
 
         <div class="card">
