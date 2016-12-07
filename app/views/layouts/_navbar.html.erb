@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default <%= params[:action] == 'home' ? 'navbar-home' : '' %>">
     <div class="container-fluid">
       <div class="navbar-brand">
         <%= link_to image_tag("logotrans.png", width: 60, :class => "logo"), root_path %>
@@ -7,7 +7,7 @@
       <% if user_signed_in? %>
         <ul class=" myul nav navbar-nav navbar-right">
 
-          <li class="navelement">
+          <!-- <li class="navelement">
             <%= link_to "#" do %>
               <div class="whole_badge">
                 <i class="fa fa-envelope-o"></i>
@@ -15,21 +15,21 @@
               </div>
             <% end %>
             <span class="span"></span>
-          </li>
+          </li> -->
 
           <% if current_user.linkedin_picture_url.nil? %>
             <% if current_user.photo.nil? %>
               <%= link_to edit_user_registration_path do %>
-                <%= image_tag "profile_default.png", class: "avatar" %>
+                <%= image_tag "profile_default.png", class: "avatar", style: "margin-left: 20px;" %>
               <% end %>
             <% else %>
                 <%= link_to edit_user_registration_path do %>
-                  <%= cl_image_tag current_user.photo.path, width: 30, height: 30, crop: :fill, class: "avatar" %>
+                  <%= cl_image_tag current_user.photo.path, width: 30, height: 30, crop: :fill, class: "avatar", style: "margin-left: 20px;" %>
                 <%end%>
             <% end %>
           <% else %>
             <%= link_to edit_user_registration_path do %>
-              <%= image_tag current_user.linkedin_picture_url, class: "avatar" %>
+              <%= image_tag current_user.linkedin_picture_url, class: "avatar", style: "margin-left: 20px;" %>
             <% end %>
           <% end %>
 

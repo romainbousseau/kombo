@@ -1,23 +1,57 @@
 .user-grey {
-  background-color: #E6E6E6;
+  background-color: #939393;
   padding: 20px 10px;
   margin: 0px 10px;
   border-bottom: solid 1px #CCCCCC;
   transition: background-color 0.3s ease;
+  opacity: 0.2;
 }
 
 .user-blue {
-  background-color: #005689;
-  color: white;
+  background-color: #939393;
   padding: 20px 10px;
   margin: 0px 10px;
   border-bottom: solid 1px #CCCCCC;
 }
 
-.user:hover {
-  background-color: white;
-}
 
 .wrapper-skyblue {
-  background-color: #D5EEFF;
+  background-color: #F4F4F4;
+}
+
+.select-user-link {
+  text-decoration: none;
+  color: black;
+}
+
+.select-user-link:hover, .select-user-link:active, .select-user-link:focus {
+  text-decoration: none;
+  color: black;
+}
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .name {
+    flex: 1 auto;
+    margin: 0;
+    padding-left: 10px;
+  }
+}
+
+
+.user-grey {
+  .fa {
+    opacity: 0;
+    font-size: 20px;
+  }
+}
+.user-blue {
+  background-color: #f7f7f7;
+  font-weight: bold;
+  .fa {
+    opacity: 1;
+    color: $green;
+    font-size: 20px;
+  }
 }
