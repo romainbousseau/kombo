@@ -1,11 +1,9 @@
 <%= simple_form_for [work_session, message], remote: true, class: "message_form", authenticity_token: true   do |f| %>
-<div class="text_field_box">
-  <%= f.input :content, as: :text, label: false %>
+  <%= f.input :content, as: :text, label: false, placeholder: "Hey #{work_session.solver_user.first_name}, I need your help!" %>
   <%= f.hidden_field :work_session_id, value: work_session.id %>
-  <%= button_tag type: 'submit', class: "btn btn-primary", id: "message-send", controller: :messages, action: :create do %>
+  <%= button_tag type: 'submit', class: "btn btn-primary hidden", id: "message-send", controller: :messages, action: :create do %>
     <i class="fa fa-paper-plane" aria-hidden="true"></i>
   <% end %>
-</div>
 <% end %>
 
 

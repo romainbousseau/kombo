@@ -10,14 +10,16 @@
       <%= link_to "", class: "select-user-link", data: { "user-id" => user.id } do %>
         <div class="user <%= index == 0 ? 'user-blue' : 'user-grey' %>" id="<%=user.id %>">
           <% if user.linkedin_picture_url.nil? %>
-            <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle" %>
+            <% if user.photo.nil? %>
+              <%= image_tag "profile_default.png", class: "avatar" %>
+            <% else %>
+              <%= cl_image_tag user.photo.path, width: 30, height: 30, crop: :fill, class: "avatar" %>
+            <%end%>
+        <% else %>
+            <%= image_tag user.linkedin_picture_url, class: "avatar" %>
+        <% end %>
             <p class="name"><%= user.first_name %> <%= user.last_name %></p>
             <i class="fa fa-check"></i>
-          <% else %>
-            <%= image_tag current_user.linkedin_picture_url, class: "avatar dropdown-toggle" %>
-            <p class="name"><%= user.first_name %> <%= user.last_name %></p>
-            <i class="fa fa-check"></i>
-          <% end %>
         </div>
       <% end %>
     <% end %>

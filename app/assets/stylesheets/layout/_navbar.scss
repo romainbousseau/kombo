@@ -11,11 +11,18 @@
   position: absolute;
   width: 100%;
   top: 0;
+
 }
 
 .navbar-home {
   background: transparent !important;
   position: fixed !important;
+  .navelement a {
+    color: white !important;
+  }
+  .navelement span {
+    background-color: white !important;
+  }
 }
 
 /* Optional class to fix the navbar on top */

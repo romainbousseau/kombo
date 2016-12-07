@@ -1,33 +1,35 @@
-<h1 class="text-center">Your Work Session</h1>
+<div class="working-space container">
+  <div class="left-part">
+    <div class="header text-center">
 
-<div class="container">
-  <div class="row">
-    <div class="test">
-      <div class="col-xs-12 col-sm-8">
-        <div class="card text-center">
-          <h2>Recap</h2>
-          <div id="buddies">
-            <%= image_tag "http://placehold.it/100x100" %>
-            <i class="fa fa-arrows-h fa-2x" aria-hidden="true"></i>
-            <%= image_tag "http://placehold.it/100x100" %>
-          </div>
-          <p>Status: <%= @work_session.status.capitalize %></p>
-          <p><%= @work_session.starts_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
-        </div>
+      <% if @work_session.problem_user.linkedin_picture_url.nil? %>
+        <% if @work_session.problem_user.photo.nil? %>
+          <%= image_tag "profile_default.png", class: "avatar" %>
+        <% else %>
+          <%= cl_image_tag @work_session.problem_user.photo.path, width: 70, height: 70, crop: :fill, class: "avatar" %>
+        <%end%>
+      <% else %>
+          <%= image_tag @work_session.problem_user.linkedin_picture_url, class: "avatar" %>
+      <% end %>
 
-        <div class="card">
-          <div class="brief text-center">
-            <h2> Brief </h2>
-            <div class="fr-view">
-              <%= @work_session.brief.html_safe %>
-            </div>
-          </div>
-        </div>
+      <% if @work_session.solver_user.linkedin_picture_url.nil? %>
+        <% if @work_session.solver_user.photo.nil? %>
+          <%= image_tag "profile_default.png", class: "avatar" %>
+        <% else %>
+          <%= cl_image_tag @work_session.solver_user.photo.path, width: 70, height: 70, crop: :fill, class: "avatar" %>
+        <%end%>
+      <% else %>
+          <%= image_tag @work_session.solver_user.linkedin_picture_url, class: "avatar" %>
+      <% end %>
+
+
+      <h2><%= @work_session.starts_at.strftime("%A, %d %b %Y %l:%M %p") %></h2>
+      <p><%= @work_session.status.capitalize %></p>
+
+      <div class="points">
+        <%= pluralize(50, "point") %>  <i class="fa fa-star"></i>
       </div>
 
-      <div class="col-xs-12 col-sm-4">
-        <%= render 'chat', work_session: @work_session, message: @message %>
-      </div>
       <% if current_user.id == @work_session.solver_user_id %>
         <% if @work_session.status == "pending" %>
           <%= link_to "Validate", validate_work_session_path(@work_session), class: "btn btn-success", method: :post %>
@@ -39,7 +41,32 @@
         <% end %>
       <% end %>
     </div>
+
+    <div class="body">
+      <div class="files-box">
+        <div class="file-box">
+          <%= image_tag "xls.png" %>
+          <p>spreadsheet.xls</p>
+        </div>
+        <div class="file-box">
+          <%= image_tag "pdf.png" %>
+          <p>brief.pdf</p>
+        </div>
+      </div>
+      <div class="brief-text">
+        <%= @work_session.brief.html_safe %>
+      </div>
+    </div>
+
   </div>
+
+  <div class="right-part">
+    <%= render 'chat', work_session: @work_session, message: @message %>
+  </div>
+</div>
+
+
+
 
 <%= content_for(:after_js) do %>
   <script>

@@ -9,9 +9,17 @@ font-weight: bold;
 }
 
 .rad-info-box{
-  padding: 10px;
+  padding: 20px;
   background-color: white;
   box-shadow: 1px 1px 0.2em #dedede;
+  text-align: center;
+  font-weight: lighter;
+  img {
+    width: 60px;
+  }
+  strong {
+    font-size: 25px;
+  }
 }
 
 .fa {
@@ -30,6 +38,7 @@ font-weight: bold;
     font-size: 1.2em;
     font-weight: 300;
     text-transform: uppercase;
+    margin-top: 15px;
 }
 
 
@@ -51,33 +60,33 @@ font-weight: bold;
 
 }
 
-.rad-txt-success {
+.rad-txt-success img{
     color:#FF895D;
     transition: all 0.7s ease;
     box-shadow: 1px;
 }
 
-.rad-txt-success:hover {
-    transform:scale(1.1);
+.rad-txt-success:hover img {
+    transform:scale(1.2);
 }
 
 
-.rad-txt-primary {
+.rad-txt-primary img{
     color:#FF895D;
     transition: all 0.7s ease;
 }
 
-.rad-txt-primary:hover {
-    transform:scale(1.1);
+.rad-txt-primary:hover img {
+    transform:scale(1.2);
 }
 
-.rad-txt-danger{
-color:#FF895D;
-transition: all 0.7s ease;
+.rad-txt-danger img{
+  color:#FF895D;
+  transition: all 0.7s ease;
 }
 
-.rad-txt-danger:hover {
-    transform:scale(1.1);
+.rad-txt-danger:hover img {
+    transform:scale(1.2);
 }
 
 #skill-field{

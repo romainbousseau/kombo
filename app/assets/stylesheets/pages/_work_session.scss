@@ -4,7 +4,7 @@ body {
 .message_from_current_user {
   background-color: #196694;
   color: white;
-  margin: 10px;
+  margin: 5px 0;
   padding: 3px;
   width: 70%;
   border-radius: 4px;
@@ -35,30 +35,37 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 77vh;
 }
 
 #chat-content {
-  height: 100vh;
+  height: calc(100vh - 255px);
   background-color: white;
   overflow-y:scroll;
 }
 
 
 #message_content {
-  background: white;
+  background: whitesmoke;
   border-top: #E8E8E9 !important;
   border-left: transparent !important;
   border-right: transparent !important;
   border-bottom: transparent !important;
   font-weight: 200;
   padding-left: 0;
+  height: 100px;
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
 
   &:focus {
     // outline: none;
     box-shadow: none;
     border-top: #E8E8E9 !important;
   }
+}
+
+.brief .form-group {
+  margin: 0 !important;
 }
 
 .text_field_box {
