@@ -44,7 +44,7 @@ body {
 }
 
 
-#message_content {
+#message_content, #review_content {
   background: whitesmoke;
   border-top: #E8E8E9 !important;
   border-left: transparent !important;
@@ -77,4 +77,10 @@ hr {
     margin-bottom: 22px;
     border: 0;
     border-top: 1px solid #D5EEFF;
+}
+
+.work_session_buttons {
+  position: absolute;
+  top: 40%;
+  left: 25px;
 }
