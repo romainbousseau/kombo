@@ -100,7 +100,7 @@ top: 22px;
 
 .navelement > a:hover ~ span {
    animation: underline 0.3s ease;
-   background:#FF895D;
+   background:#FF895D !important;
 }
 
 @keyframes underline{

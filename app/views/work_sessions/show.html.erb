@@ -26,7 +26,7 @@
       <p><%= @work_session.status.capitalize %></p>
 
       <div class="points">
-        <%= pluralize(50, "point") %>  <i class="fa fa-star"></i>
+        <p>to win: <%= pluralize(50, "point") %> <i class="fa fa-star"></i></p>
       </div>
 
       <% if current_user.id == @work_session.solver_user_id %>
@@ -43,13 +43,13 @@
 
     <div class="body">
       <div class="files-box">
-        <div class="file-box">
-          <%= image_tag "xls.png" %>
-          <p>spreadsheet.xls</p>
+        <div class="file-box" id="files">
+          <%#= image_tag "xls.png" %>
+          <!-- <p>spreadsheet.xls</p>-->
         </div>
         <div class="file-box">
-          <%= image_tag "pdf.png" %>
-          <p>brief.pdf</p>
+          <%#= image_tag "pdf.png" %>
+         <!--  <p>brief.pdf</p> -->
         </div>
       </div>
       <div class="brief-text">
