@@ -26,7 +26,7 @@
       <p><%= @work_session.status.capitalize %></p>
 
       <div class="points">
-        <%= pluralize(50, "point") %>  <i class="fa fa-star"></i>
+        <p>to win:<%= pluralize(50, "point") %></p>  <i class="fa fa-star"></i>
       </div>
 
       <% if current_user.id == @work_session.solver_user_id %>
