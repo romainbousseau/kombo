@@ -1,5 +1,9 @@
 <div id="chat">
  <div id="chat-content" class="<%= current_user.id %>">
+  <div class="<%= @work_session.problem_user == current_user ? 'message_from_current_user current_user' : 'message_from_other_user other_user' %>">
+       <p class="username"> <%= @work_session.problem_user.first_name %> </p>
+       <p class="message_text"> Bonjour <%= @work_session.solver_user.first_name %>, j'aurais besoin de ton aide : je t'ai briefé mon problème. Je te propose un rendez-vous le <%= l(@work_session.starts_at, format: '%A %e %B') %></p>
+     </div>
    <% @conversation.each do |message| %>
    <div class="<%= message.user == current_user ? 'message_from_current_user current_user' : 'message_from_other_user other_user' %>">
      <p class="username"> <%= message.user.first_name %> </p>
