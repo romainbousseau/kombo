@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :messages, through: :work_sessions
   has_many :problems, :class_name => 'WorkSession', :foreign_key => 'problem_user_id'
   has_many :askings, :class_name => 'WorkSession', :foreign_key => 'solver_user_id'
-
+  has_attachment :photo
   def self.find_for_linkedin_oauth(auth)
     #TODO Add
     user_params = auth.to_h.slice(:uid, :provider)

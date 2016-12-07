@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
-
+gem "cloudinary"
+gem "attachinary", github: "assembler/attachinary"
+gem "jquery-fileupload-rails"
+gem "coffee-rails"
 gem 'rails', '5.0.0.1'
 gem 'puma'
 gem 'pg'
@@ -10,6 +13,7 @@ gem 'devise'
 gem 'redis'
 gem 'pundit'
 gem 'chosen-rails'
+gem 'wysiwyg-rails'
 source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
 end
@@ -27,7 +31,6 @@ gem 'acts-as-taggable-on', '~> 4.0'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem "wysiwyg-rails"
 
 group :development, :test do
   gem 'binding_of_caller'

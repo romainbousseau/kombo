@@ -5,13 +5,9 @@
 //= require fullcalendar
 //= require chosen-jquery
 //= require bootstrap-datepicker
+//= require jquery-fileupload/basic
+//= require cloudinary/jquery.cloudinary
+//= require attachinary
+//= require froala_editor.min
 //= require_tree ./channels
-//= require froala_editor.min.js
-//= require plugins/file.min.js
-//= require plugins/url.min.js
-//= require plugins/align.min.js
-//= require plugins/colors.min.js
-//= require plugins/emoticons.min.js
-//= require plugins/font_family.min.js
-//= require plugins/font_size.min.js
 //= require_tree .

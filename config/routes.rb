@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  mount Attachinary::Engine => "/attachinary"
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 
