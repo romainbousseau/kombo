@@ -37,9 +37,9 @@ lucie = User.new(email: 'lucie@wagon.com', password: '123456', password_confirma
 lucie.tag_list.add('Web integration', 'Html/Css', 'UI design', 'Seo')
 lucie.save!
 
-jean-eudes = User.new(email: 'jean-eudes@wagon.com', password: '123456', password_confirmation: '123456', first_name: 'Jean-eudes', last_name: 'Maurice')
-jean-eudes.tag_list.add('C++', 'Ruby', 'Php', 'Javascript', 'Development')
-jean-eudes.save!
+jean = User.new(email: 'jean-eudes@wagon.com', password: '123456', password_confirmation: '123456', first_name: 'Jean-eudes', last_name: 'Maurice')
+jean.tag_list.add('C++', 'Ruby', 'Php', 'Javascript', 'Development')
+jean.save!
 
 sofia = User.new(email: 'sofia@wagon.com', password: '123456', password_confirmation: '123456', first_name: 'Sofia', last_name: 'Larov')
 sofia.tag_list.add('Microsoft office', 'Photoshop')
