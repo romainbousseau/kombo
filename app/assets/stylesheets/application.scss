@@ -29,7 +29,6 @@
   list-style:none;
   font-size:17px;
   text-align:center;
-  background-color:#005689;
   padding : 20px;
 }
 
@@ -40,7 +39,7 @@ padding-bottom: 0px;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-color: #D5EEFF;
+  color: white;
 }
 
 .logo{
@@ -55,13 +54,20 @@ top: 22px;
 }
 
 .navbar{
-  background-color:#005689;
+  background-color: transparent;
   padding : 10px;
   width: 100%;
   border : none;
   margin-bottom: 0px;
   opacity: 0.9;
-  position: relative;
+  position: absolute;
+  top: 0;
+  .navelement a {
+    color: black !important;
+  }
+  .navelement span {
+    background-color: black;
+  }
 }
 
 .navelement {
@@ -76,14 +82,19 @@ top: 22px;
   padding:10px;
 }
 
+.navelement {
+  margin: 0 10px;
+  font-size: bold;
+}
+
 .span {
-  display:block;
-  width:calc(100% - 23px);
-  height:4px;
-  background:#D5EEFF;
-  position:absolute;
-  left:10px;
-  bottom:-10px;
+  display: block;
+  width: calc(100% - 23px);
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: 12px;
+  bottom: -11px;
 }
 
 .navelement > a:hover {
@@ -153,7 +164,9 @@ background: #FFF;
   margin: 0 10px 10px 0;
   text-decoration: none;
   transition: color 0.2s;
-
+  a {
+    font-size: 17px;
+  }
 }
 
 .tag::before {
@@ -171,17 +184,21 @@ background: #FFF;
 .tag::after {
   background: #fff;
   border-bottom: 13px solid transparent;
-  border-left: 10px solid #D5EEFF;
   border-top: 13px solid transparent;
   content: '';
   position: absolute;
-  right: 0;
+  right: -10px;
   top: 0;
 }
 
 .tag:hover {
   background-color: #FF895D;
   color: white;
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+  }
 }
 
 .tag:hover::after {

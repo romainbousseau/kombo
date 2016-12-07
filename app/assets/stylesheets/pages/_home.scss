@@ -68,9 +68,10 @@ background-image: url("pair1.png");
   justify-content: center;
 }
 .banner h1 {
-  font-size: 50px;
+  font-size: 62px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
 }
 .banner p {
   font-size: 20px;
@@ -79,12 +80,33 @@ background-image: url("pair1.png");
   margin-bottom: 20px;
 }
 
-
-
 .box {
   background:#FF895D;
-  width: 100%;
+  width: 500px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  .box-head {
+    padding : 40px;
+  }
+  .box-footer {
+    width: 100%;
+    height: 80px;
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 0;
+  }
+  .search-field input {
+    width: 300px !important;
+    text-transform: capitalize;
+    line-height: 52px !important;
+    font-size: 20px !important;
+  }
+  .chosen-choices {
+    display: flex !important;
+    align-items: center !important;
+  }
 }
+
 .js-shadow {
   color: #fff;
   font-size: 3em;
@@ -102,5 +124,5 @@ background-image: url("pair1.png");
 }
 
 .description {
-  background-color: #D5EEFF;
+  background-color: #F4F4F4;
 }

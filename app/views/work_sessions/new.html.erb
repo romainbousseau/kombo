@@ -1,33 +1,52 @@
-<%= simple_form_for @work_session do |f| %>
-<div class="container" id='user-index'>
-  <div class="row">
-    <%= render 'users/index' %>
-    <div class="col-xs-12 col-sm-8 user-show-container">
+<div class="progress-session">
+  <div class="progress-nav">
+    <div class="step active" id="step-one">
+      <div>1</div>
+      <h3>Choose a buddy</h3>
+    </div>
+    <div class="dash"></div>
+    <div class="step" id="step-two">
+      <div>2</div>
+      <h3>Set a brief</h3>
+    </div>
+    <div class="dash"></div>
+    <div class="step" id="step-three">
+      <div>3</div>
+      <h3>Pick a date</h3>
+    </div>
+  </div>
+
+  <div class="progress-body">
+    <%= simple_form_for @work_session do |f| %>
+    <div id='user-index'>
+      <%= render 'users/index' %>
       <% @users.each do |user| %>
         <%= render "users/user_card", user: user %>
       <% end %>
       <%= f.hidden_field :solver_user_id, id: 'solver_id' %>
     </div>
-  </div>
-</div>
 
-<div class="container hidden" id='brief'>
-  <div class="card">
-    <h3>Write a Brief</h3>
-    <div class="brief text-center">
-      <%= f.input :brief, as: :text, input_html: { id: 'brief-editor' } %>
-      <%= link_to "Send Brief", "", class: 'btn btn-primary send-brief' %>
+    <div class="hidden" id='brief'>
+      <h3 class="text-center">Write your Brief</h3>
+      <div class="brief text-center">
+        <%= f.input :brief, as: :text, label: false, input_html: { id: 'brief-editor' } %>
+        <%= link_to "Send Brief", "", class: 'btn btn-primary send-brief' %>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="container hidden" id='datepicker'>
-  <div class="card">
-    <h3>Enter a meeting date</h3>
-    <div class="datepicker-container">
-      <%= f.input_field :starts_at, :class => 'datepicker', as: :string %>
-      <%= f.submit class: "btn btn-success" %>
+    <div class="hidden" id='datepicker'>
+
+      <div class="datepicker-container">
+        <h3>Enter a meeting date</h3>
+
+        <div class="datepicker-input">
+          <%= f.input_field :starts_at, placeholder: "Sat 7th November", :class => 'datepicker form-control', as: :string %>
+          <%= f.submit class: "btn btn-success" %>
+        </div>
+      </div>
+
     </div>
+    <% end %>
+
   </div>
 </div>
-<% end %>

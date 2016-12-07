@@ -17,12 +17,9 @@ $(document).ready(function(){
 
   listenSendBrief();
 
-  $( ".user" ).first().addClass('user-blue');
-  $('.user-grey').click(function () {
-    $('.user-blue').removeClass('user-blue');
-    $('user').addClass('user-grey');
-    $(this).removeClass('user');
-    $(this).addClass('user-blue');
+  $('#user-list').on("click", ".user-grey",  function () {
+    $('.user-blue').removeClass('user-blue').addClass("user-grey");
+    $(this).removeClass("user-grey").addClass('user-blue');
   });
 });
 
