@@ -18,14 +18,14 @@
         <div class="card">
           <div class="brief text-center">
             <h2> Brief </h2>
-            <%= @work_session.brief %>
+            <div class="fr-view">
+              <%= @work_session.brief.html_safe %>
+            </div>
           </div>
-
         </div>
-        
       </div>
 
-      <div class="col-xs-12 col-sm-4">s
+      <div class="col-xs-12 col-sm-4">
         <%= render 'chat', work_session: @work_session, message: @message %>
       </div>
       <% if current_user.id == @work_session.solver_user_id %>

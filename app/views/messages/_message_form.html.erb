@@ -1,4 +1,4 @@
-<%= simple_form_for [work_session, message], remote: true, class: "message_form", authenticity_token: true   do |f| %>
+<%= simple_form_for [@work_session, @message], remote: true, class: "message_form", authenticity_token: true   do |f| %>
 <div class="text_field_box">
   <%= f.input :content, as: :text, label: false %>
   <%= f.hidden_field :work_session_id, value: work_session.id %>
@@ -9,10 +9,4 @@
 <% end %>
 
 
-<!-- <%= form_for [work_session, message], remote: true, authenticity_token: true do |f| %>
-  <%= f.label :your_message %>:
-  <%= f.text_area :content, class: "form-control", data: {textarea: "message"} %>
 
-  <%= f.hidden_field :work_session_id, value: work_session.id %>
-  <%= f.submit "send", class: "btn btn-primary", style: "display: none", data: {send: "message"} %>
-<% end %> -->
