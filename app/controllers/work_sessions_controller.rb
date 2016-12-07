@@ -3,6 +3,7 @@ class WorkSessionsController < ApplicationController
 
   def show
     @message = Message.new
+    @review = Review.new
     @conversation = Message.where(work_session_id: @work_session.id)
     authorize @work_session
   end
