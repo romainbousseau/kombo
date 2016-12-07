@@ -55,6 +55,7 @@ class UsersController < ApplicationController
   end
 
 def add_skill
+  @sessions = WorkSession.where(current_user.id == params[:solver_user_id])
   @skills = current_user.tag_list
   @user = current_user
   skill = params[:skill][:name].reject{|skill| skill.blank?}
