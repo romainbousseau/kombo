@@ -7,11 +7,11 @@ $(document).ready(function(){
     $(item).hide();
     var regex = '^.*\.(png)$'
     if (text.match(regex)) {
-      $('.files-box').append('<div class="file-box"><a href="' + href + '"><%= image_tag("png.png") %></a><p>' + text + '</p></div>');
+      $('.files-box').append('<div class="file-box"><a href="' + href + '"><%= image_tag("png.png") %></a><p>' + text.substring(0, 10) + '</p></div>');
     } else if (text.match('^.*\.(xls)$')) {
-      $('.files-box').append('<div class="file-box"><a href="' + href + '"><%= image_tag("xls.png") %></a><p>' + text + '</p></div>');
+      $('.files-box').append('<div class="file-box"><a href="' + href + '"><%= image_tag("xls.png") %></a><p>' + text.substring(0, 10) + '</p></div>');
     } else if (text.match('^.*\.(pdf)$')) {
-      $('.files-box').append('<div class="file-box"><a href="' + href + '"><%= image_tag("pdf.png") %></a><p>' + text + '</p></div>');
+      $('.files-box').append('<div class="file-box"><a href="' + href + '"><%= image_tag("pdf.png") %></a><p>' + text.substring(0, 10) + '</p></div>');
     }
   });
 });

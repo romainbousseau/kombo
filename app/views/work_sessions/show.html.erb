@@ -5,22 +5,11 @@
         <% if @work_session.problem_user.photo.nil? %>
           <%= image_tag "profile_default.png", class: "avatar" %>
         <% else %>
-          <%= cl_image_tag @work_session.problem_user.photo.path, width: 70, height: 70, crop: :fill, class: "avatar" %>
+          <%= cl_image_tag(@work_session.problem_user.photo.path, width: 70, height: 70, crop: :fill, class: "avatar") %>
         <%end%>
       <% else %>
-          <%= image_tag @work_session.problem_user.linkedin_picture_url, class: "avatar" %>
+          <%= image_tag(@work_session.problem_user.linkedin_picture_url, class: "avatar") %>
       <% end %>
-
-      <% if @work_session.solver_user.linkedin_picture_url.nil? %>
-        <% if @work_session.solver_user.photo.nil? %>
-          <%= image_tag "profile_default.png", class: "avatar" %>
-        <% else %>
-          <%= cl_image_tag @work_session.solver_user.photo.path, width: 70, height: 70, crop: :fill, class: "avatar" %>
-        <%end%>
-      <% else %>
-          <%= image_tag @work_session.solver_user.linkedin_picture_url, class: "avatar" %>
-      <% end %>
-
 
       <h2><%= @work_session.starts_at.strftime("%A %e %B %Y") %></h2>
       <p><%= @work_session.status.capitalize %></p>

@@ -5,7 +5,7 @@
           <% if user.photo.nil? %>
             <%= image_tag "profile_default.png", class: "avatar" %>
           <% else %>
-            <%= cl_image_tag user.photo.path, width: 70, height: 70, crop: :fill, class: "avatar" %>
+            <%= cl_image_tag(user.photo.path, width: 70, height: 70, crop: :fill, class: "avatar") %>
           <%end%>
         <% else %>
             <%= image_tag user.linkedin_picture_url, class: "avatar" %>

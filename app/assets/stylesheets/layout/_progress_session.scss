@@ -10,7 +10,7 @@
 
   }
   .progress-body {
-    height: calc(100vh - 270px);
+    min-height: calc(100vh - 270px);
     margin-top: 50px;
     background-color: white;
     border-radius: 5px;
