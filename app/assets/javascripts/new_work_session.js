@@ -12,8 +12,9 @@ $(document).ready(function(){
   listenSelectUser();
 
   $('#brief-editor').froalaEditor({
-    height: 250
   });
+
+  $('#brief-editor').attr('style','min-height:250px;other-styles');
 
   listenSendBrief();
 
