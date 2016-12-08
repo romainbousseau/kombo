@@ -100,7 +100,7 @@ top: 22px;
 
 .navelement > a:hover ~ span {
    animation: underline 0.3s ease;
-   background:#FF895D;
+   background:#FF895D !important;
 }
 
 @keyframes underline{
@@ -158,7 +158,7 @@ background: #FFF;
   line-height: 26px;
   padding: 0 20px 0 23px;
   position: relative;
-  margin: 0 10px 10px 0;
+  margin: 0 10px 10px 10px;
   text-decoration: none;
   transition: color 0.2s;
   a {
@@ -212,5 +212,4 @@ background: #FFF;
 
 
 //media queries (mobile)
-
 

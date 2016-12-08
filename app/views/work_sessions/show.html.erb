@@ -26,30 +26,49 @@
       <p><%= @work_session.status.capitalize %></p>
 
       <div class="points">
-        <%= pluralize(50, "point") %>  <i class="fa fa-star"></i>
+        <p>to win: <%= pluralize(50, "point") %> <i class="fa fa-star"></i></p>
       </div>
-
-      <% if current_user.id == @work_session.solver_user_id %>
-        <% if @work_session.status == "pending" %>
-          <%= link_to "Validate", validate_work_session_path(@work_session), class: "btn btn-success", method: :post %>
-          <%= link_to "Decline", decline_work_session_path(@work_session), class: "btn btn-danger", method: :post %>
+      <div class="work_session_buttons">
+        <% if current_user.id == @work_session.solver_user_id %>
+          <% if @work_session.status == "pending" %>
+            <%= link_to "Validate", validate_work_session_path(@work_session), class: "btn btn-success btn-work-session1", method: :post %>
+            <%= link_to "Decline", decline_work_session_path(@work_session), class: "btn btn-danger btn-work-session2", method: :post %>
+          <% end %>
+        <% elsif current_user.id == @work_session.problem_user_id %>
+          <% if @work_session.status == "validate" %>
+            <%= link_to "Done", done_work_session_path(@work_session), class: "btn btn-warning btn-work-session1", method: :post %>
+          <% elsif @work_session.status == "done" %>
+            <%= button_tag "Add a review", type: 'button', data: { target: "#newReview", toggle: "modal"}, class: "btn btn-primary btn-work-session1" %>
+          <% end %>
         <% end %>
-      <% elsif current_user.id == @work_session.problem_user_id %>
-        <% if @work_session.status == "validate" %>
-          <%= link_to "Done", done_work_session_path(@work_session), class: "btn btn-warning", method: :post %>
-        <% end %>
-      <% end %>
+      </div>
     </div>
+
+<!-- Modal -->
+<div class="modal fade" id="newReview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= image_tag 'like.png', class: 'center-block' %>
+        <h4 class="modal-title text-center" id="myModalLabel">Write your review</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'reviews/new', work_session: @work_session, review: @review %>
+      </div>
+    </div>
+  </div>
+</div>
 
     <div class="body">
       <div class="files-box">
-        <div class="file-box">
-          <%= image_tag "xls.png" %>
-          <p>spreadsheet.xls</p>
+        <div class="file-box" id="files">
+          <%#= image_tag "xls.png" %>
+          <!-- <p>spreadsheet.xls</p>-->
         </div>
         <div class="file-box">
-          <%= image_tag "pdf.png" %>
-          <p>brief.pdf</p>
+          <%#= image_tag "pdf.png" %>
+         <!--  <p>brief.pdf</p> -->
         </div>
       </div>
       <div class="brief-text">

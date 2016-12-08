@@ -20,6 +20,10 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
+    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+      <div class="btn-linkedin text-center">
+        <i class="fa fa-linkedin"></i>Sign in with LinkedIn
+      </div>
+    <% end %>
+  <% end -%> <br />
 <% end -%>
