@@ -37,7 +37,8 @@ class UsersController < ApplicationController
   def dashboard
     @skills = current_user.tag_list
     @user = current_user
-    @sessions = WorkSession.where(current_user.id == params[:solver_user_id])
+    @sessions = WorkSession.where(solver_user: @user)
+    @kombos = @sessions.or(WorkSession.where(problem_user: @user))
     authorize @user
   end
 
@@ -48,7 +49,6 @@ class UsersController < ApplicationController
   end
 
   def update_profile
-    raise
     @user = current_user(user_params)
     @user.update
     authorize @user
@@ -60,6 +60,7 @@ def add_skill
   @user = current_user
   skill = params[:skill][:name].reject{|skill| skill.blank?}
   @user.tag_list.add(skill)
+  @kombos = @sessions.or(WorkSession.where(problem_user: @user))
   authorize @user
 
   if @user.save

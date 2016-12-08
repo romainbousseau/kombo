@@ -20,7 +20,7 @@
         <div class="rad-info-box rad-txt-danger">
           <%= image_tag "gift.png"  %>
           <span class="heading">Next bonus CE in </span>
-          <span class="value"><strong>49 points</strong></span>
+          <span class="value"><strong> <%= pluralize(current_user.points, 'point') %></strong></span>
         </div>
       </div>
   </div>
@@ -52,11 +52,23 @@
       <div id="Activity">
       <h2 style="text-align:center;" class="header_block"> Your schedule </h2>
 <ol class="activity-feed">
-  <li class="feed-item">
-    <time class="date">Sep 25</time>
-    <span class="text">Responded to need <a href="#"> "Need SEO advise for new page"</a></span><br>
-    <span class="text">Responded to need <a href="#"> "Need SEA advise for new page"</a></span>
-  </li>
+<% @kombos.each do |kombo| %>
+  <% unless kombo.status == "done" || kombo.status == "decline" %>
+    <% if kombo.problem_user == current_user %>
+      <li class="feed-item">
+        <time class="date"><%= kombo.starts_at.strftime("%b %l")%></time>
+        <span class="text">Asked help to <%= kombo.solver_user.first_name %> <%= kombo.solver_user.last_name %>, who is a <%= kombo.solver_user.work_department%> expert</span>
+      </li>
+    <% else %>
+      <li class="feed-item">
+        <time class="date"><%= kombo.starts_at.strftime("%b %l") %></time>
+        <span class="text"><%= kombo.problem_user.first_name %> <%= kombo.problem_user.last_name %> asked for your help. Needs a <%= kombo.solver_user.work_department %> expert</span>
+      </li>
+    <% end %>
+    <% end %>
+    <% end %>
+
+<!--
   <li class="feed-item">
     <time class="date" datetime="9-23">Sep 23</time>
     <span class="text">Accepted the task<a href="#"> “Need a excel expert”</a></span>
@@ -64,7 +76,7 @@
   <li class="feed-item">
     <time class="date" datetime="9-21">Sep 21</time>
     <span class="text">Your need has been taken by <a href="#">“Cedric Njanga”</a></span>
-  </li>
+  </li> -->
 </ol>
       </div>
     </div>
