@@ -17,11 +17,16 @@
         </div>
       </div>
       <div class="col-md-4 col-xs-6">
-        <div class="rad-info-box rad-txt-danger">
-          <%= image_tag "gift.png"  %>
-          <span class="heading">Next bonus CE in </span>
-          <span class="value"><strong> <%= pluralize(current_user.points, 'point') %></strong></span>
-        </div>
+        <div class="rad-info-box rad-txt-danger" id ="gift">
+          <!-- <div class="front"> -->
+            <%= image_tag "gift.png" %>
+            <span class="heading">Next bonus CE in </span>
+            <span class="value"><strong> <%= pluralize(500 - current_user.points, 'point') %></strong></span>
+          <!-- </div>
+          <div class="back" >
+            <%= image_tag("beach.png", height: "135px", width: "1px") %>
+          </div> -->
+      </div>
       </div>
   </div>
   <br>
@@ -102,3 +107,9 @@
 
 
   </div>
+
+  <%= content_for(:after_js) do %>
+    <script>
+      $("#gift").flip();
+    </script>
+  <% end %>

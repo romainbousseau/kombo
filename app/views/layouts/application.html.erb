@@ -39,6 +39,8 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Flip/1.1.2/jquery.flip.min.js">
+</script>
     <%= cloudinary_js_config %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag "application-print", :media => "print" %>
