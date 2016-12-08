@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
 
   # Pundit: white-list approach.
@@ -15,6 +16,13 @@ class ApplicationController < ActionController::Base
   # end
 
   private
+
+  def configure_permitted_parameters
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :work_department, :profile_description, :photo])
+  end
+
+
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/

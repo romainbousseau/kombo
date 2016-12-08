@@ -1,0 +1,17 @@
+$(document).ready(function(){
+  $(".brief-text .fr-file").each(function(index, item) {
+    var href = $(item).attr("href");
+    var text = $(item).text();
+    console.log(href);
+    console.log(text);
+    $(item).hide();
+    var regex = '^.*\.(png)$'
+    if (text.match(regex)) {
+      $('.files-box').append('<div class="file-box"><a href="' + href + '"><%= image_tag("png.png") %></a><p>' + text + '</p></div>');
+    } else if (text.match('^.*\.(xls)$')) {
+      $('.files-box').append('<div class="file-box"><a href="' + href + '"><%= image_tag("xls.png") %></a><p>' + text + '</p></div>');
+    } else if (text.match('^.*\.(pdf)$')) {
+      $('.files-box').append('<div class="file-box"><a href="' + href + '"><%= image_tag("pdf.png") %></a><p>' + text + '</p></div>');
+    }
+  });
+});

@@ -1,4 +1,4 @@
-class MatchPolicy < ApplicationPolicy
+class WorkSessionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
@@ -14,6 +14,18 @@ class MatchPolicy < ApplicationPolicy
   end
 
   def show
+    true
+  end
+
+  def validate?
+    true
+  end
+
+  def decline?
+    true
+  end
+
+  def done?
     true
   end
 end

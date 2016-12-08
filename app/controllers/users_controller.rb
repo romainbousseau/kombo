@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    #TODO Add a good filter to have users who match the main skills and the optional skills, now we just have the main skills
-    @match = Match.new
+    #TODO Add a good filter to have users who work_session the main skills and the optional skills, now we just have the main skills
+    @work_session = WorkSession.new
     @user = User.new
     parameters = params[:skill][:name]
     index_of_separator = parameters.each_index.select{|i| parameters[i] == ""}.pop
@@ -37,10 +37,25 @@ class UsersController < ApplicationController
   def dashboard
     @skills = current_user.tag_list
     @user = current_user
+    @sessions = WorkSession.where(current_user.id == params[:solver_user_id])
+    authorize @user
+  end
+
+
+  def edit
+    @user = current_user(user_params)
+    authorize @user
+  end
+
+  def update_profile
+    raise
+    @user = current_user(user_params)
+    @user.update
     authorize @user
   end
 
 def add_skill
+  @sessions = WorkSession.where(current_user.id == params[:solver_user_id])
   @skills = current_user.tag_list
   @user = current_user
   skill = params[:skill][:name].reject{|skill| skill.blank?}
@@ -51,5 +66,11 @@ def add_skill
     render :dashboard
   end
 end
+
+private
+def user_params
+params.require(:user).permit(:first_name, :last_name, :work_department, :profile_description, :photo)
+end
+
 
 end

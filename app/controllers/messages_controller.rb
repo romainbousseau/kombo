@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :find_match, only: [:show, :new, :create]
+  before_action :find_work_session, only: [:show, :new, :create]
 
   def show
     @message = Message.find(params[:id])
@@ -14,17 +14,22 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user
-    @message.match = @match
+    @message.work_session = @work_session
     authorize @message
 
     if @message.save
-     respond_to do |format|
-       format.html { redirect_to match_path(@match) }
-       format.js  # <-- will render `app/views/messages/create.js.erb`
-     end
+      ActionCable.server.broadcast 'messages',
+        message: @message.content,
+        user: @message.user.first_name,
+        user_id: @message.user.id,
+        time: Time.now
+      respond_to do |format|
+        format.html { redirect_to work_session_path(@work_session) }
+        format.js  # <-- will render `app/views/messages/create.js.erb`
+      end
    else
      respond_to do |format|
-       format.html { render 'matches/show' }
+       format.html { render 'work_sessions/show' }
        format.js  # <-- idem
      end
     end
@@ -33,10 +38,10 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :work_session_id)
   end
 
-  def find_match
-   @match = Match.find(params[:match_id])
+  def find_work_session
+     @work_session = WorkSession.find(params[:work_session_id])
   end
 end

@@ -1,10 +1,10 @@
 body {
-  background-color: #D5EEFF;
+  background-color: #F4F4F4;
 }
 .message_from_current_user {
   background-color: #196694;
   color: white;
-  margin: 10px;
+  margin: 5px 0;
   padding: 3px;
   width: 70%;
   border-radius: 4px;
@@ -14,12 +14,16 @@ body {
 }
 
 .message_from_other_user {
-  background-color: #62CE82;
+  background-color: #F99471;
   color: white;
   margin: 10px;
-  padding: 5px;
+  padding: 3px;
   width: 70%;
-  margin-left: 28%
+  margin-left: 28%;
+  border-radius: 4px;
+  p {
+    margin: 0 5px 11px;
+  }
 }
 
 .message_text {
@@ -31,30 +35,37 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 77vh;
 }
 
 #chat-content {
-  height: 100vh;
+  height: calc(100vh - 255px);
   background-color: white;
   overflow-y:scroll;
 }
 
 
-#message_content {
-  background: white;
+#message_content, #review_content {
+  background: whitesmoke;
   border-top: #E8E8E9 !important;
   border-left: transparent !important;
   border-right: transparent !important;
   border-bottom: transparent !important;
   font-weight: 200;
   padding-left: 0;
+  height: 100px;
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
 
   &:focus {
     // outline: none;
     box-shadow: none;
     border-top: #E8E8E9 !important;
   }
+}
+
+.brief .form-group {
+  margin: 0 !important;
 }
 
 .text_field_box {
@@ -66,4 +77,10 @@ hr {
     margin-bottom: 22px;
     border: 0;
     border-top: 1px solid #D5EEFF;
+}
+
+.work_session_buttons {
+  position: absolute;
+  top: 40%;
+  left: 25px;
 }

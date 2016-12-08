@@ -1,33 +1,39 @@
-<div class="card">
-  <h3 class="text-center">show user</h3>
+<div class="user-card <%= user == @users.first ? "first-user" : "hidden" %>" id="user_card_<%= user.id %>" data-user-id="<%= user.id %>">
   <div class="user-profile">
-    <% if user.nil? %>
-    <% else %>
-      <% if user.linkedin_picture_url.nil? %>
-        <div class="user-description text-center">
-          <%= image_tag "http://placehold.it/30x30" %>
-          <p><%= user.first_name %> <%= user.last_name %></p>
-        </div>
+      <div class="user-description text-center">
+        <% if user.linkedin_picture_url.nil? %>
+          <% if user.photo.nil? %>
+            <%= image_tag "profile_default.png", class: "avatar" %>
+          <% else %>
+            <%= cl_image_tag user.photo.path, width: 70, height: 70, crop: :fill, class: "avatar" %>
+          <%end%>
+        <% else %>
+            <%= image_tag user.linkedin_picture_url, class: "avatar" %>
+        <% end %>
+
+        <p><%= user.first_name %> <%= user.last_name %></p>
+      </div>
+
+      <div class="points">
+        <%= pluralize(user.points, "point") %>  <i class="fa fa-star"></i>
+      </div>
+
+      <div class="skills">
+        <h4>Skills</h4>
         <ul>
         <% user.tag_list.each do |skill| %>
-          <li class="tags">
-             <%= skill %>
-          </li>
+          <li class="tag"><a href="#"><%= skill %></a></li>
         <% end %>
         </ul>
-      <% else %>
-        <div class="user-description text-center">
-          <%= image_tag user.linkedin_picture_url %>
-          <p><%= user.first_name %> <%= user.last_name %></p>
-        </div>
-        <ul>
-        <% user.tag_list.each do |skill| %>
-          <li class="tags">
-             <%= skill %>
-          </li>
-        <% end %>
-        </ul>
-      <% end %>
-    <% end %>
+      </div>
+
+      <div class="resume">
+        <h4>Resume</h4>
+        <p><%= user.profile_description %></p>
+      </div>
+
+
+      <%= link_to "Work with #{user.first_name}", "", id: "choose-user", class: "choose-user btn btn-primary" %>
+
   </div>
 </div>

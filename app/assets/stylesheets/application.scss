@@ -7,34 +7,37 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "bootstrap-datepicker";
+@import "froala_editor.min";
+@import "froala_style.min";
+@import "plugins/file.min";
+@import "plugins/emoticons.min";
+@import "plugins/colors.min";
 
 // Your CSS
 @import "layout/index";
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
-
 @import "fullcalendar";
 @import "chosen";
+
+
 
 
 .myul {
   list-style:none;
   font-size:17px;
   text-align:center;
-  background-color:#005689;
   padding : 20px;
 }
 
 .navbar-default .navbar-nav > li > a{
-color: white;
-padding-top: 0px;
-padding-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
-color: #D5EEFF;
-}
+
 
 .logo{
 width: 160px;
@@ -48,13 +51,20 @@ top: 22px;
 }
 
 .navbar{
-  background-color:#005689;
+  background-color: transparent;
   padding : 10px;
   width: 100%;
   border : none;
   margin-bottom: 0px;
   opacity: 0.9;
-  position: relative;
+  position: absolute;
+  top: 0;
+  .navelement a {
+    color: black;
+  }
+  .navelement span {
+    background-color: black;
+  }
 }
 
 .navelement {
@@ -69,14 +79,19 @@ top: 22px;
   padding:10px;
 }
 
+.navelement {
+  margin: 0 10px;
+  font-size: bold;
+}
+
 .span {
-  display:block;
-  width:calc(100% - 23px);
-  height:4px;
-  background:#D5EEFF;
-  position:absolute;
-  left:10px;
-  bottom:-10px;
+  display: block;
+  width: calc(100% - 23px);
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: 12px;
+  bottom: -11px;
 }
 
 .navelement > a:hover {
@@ -85,7 +100,7 @@ top: 22px;
 
 .navelement > a:hover ~ span {
    animation: underline 0.3s ease;
-   background:#FF895D;
+   background:#FF895D !important;
 }
 
 @keyframes underline{
@@ -95,5 +110,103 @@ top: 22px;
   100% {
     width:calc(100% - 23px);
   }
+}
+
+.btn-mine{
+text-transform: uppercase;
+letter-spacing: 2px;
+text-align: center;
+font-size: 18px;
+font-weight: 300px;
+margin: 1em auto;
+padding: 10px 20px;
+width: 400px;
+height: 44px;
+background:#FF895D;
+border: 1px solid #FF895D;
+color: #FFF;
+overflow: hidden;
+border-radius: 4px;
+transition: all 0.5s;
+}
+
+
+.btn-mine:hover, .btn-mine:active{
+text-decoration: none;
+color: #FF895D;
+border-color: #FF895D;
+background: #FFF;
+}
+
+.tags li {
+  list-style: none;
+}
+
+.tags {
+  list-style: none;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tag {
+  background: #D5EEFF;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 10px;
+  text-decoration: none;
+  transition: color 0.2s;
+  a {
+    font-size: 17px;
+  }
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 0;
+}
+
+.tag:hover {
+  background-color: #FF895D;
+  color: white;
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+  }
+}
+
+.tag:hover::after {
+   border-left-color: #FF895D;
+}
+
+#buddies {
+  padding-bottom: 15px
+}
+
+.fa-arrows-h {
+  padding: 0 15px;
 }
 
