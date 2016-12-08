@@ -36,6 +36,8 @@ function listenStepOne() {
     $('#datepicker').addClass('hidden');
     $('.step').removeClass('active')
     $('#step-one').addClass('active')
+    $('.progress-body').hide();
+   $(".progress-body").animate({width:'toggle'},350);
   });
 }
 
@@ -46,6 +48,8 @@ function listenStepTwo() {
     $('#datepicker').addClass('hidden');
     $('.step').removeClass('active')
     $('#step-two').addClass('active')
+    $('.progress-body').hide();
+   $(".progress-body").animate({width:'toggle'},350);
   });
 }
 
@@ -56,6 +60,8 @@ function listenStepThree() {
     $('#brief').addClass('hidden');
     $('.step').removeClass('active')
     $('#step-three').addClass('active')
+    $('.progress-body').hide();
+   $(".progress-body").animate({width:'toggle'},350);
   });
 }
 
@@ -66,6 +72,8 @@ function listenSelectUser() {
     $('#brief').removeClass('hidden');
     $('.step').removeClass('active')
     $('#step-two').addClass('active')
+    $('.progress-body').hide();
+    $(".progress-body").animate({width:'toggle'},350);
   });
 }
 
@@ -76,5 +84,7 @@ function listenSendBrief() {
     $('#datepicker').removeClass('hidden');
     $('.step').removeClass('active')
     $('#step-three').addClass('active')
+    $('.progress-body').hide();
+   $(".progress-body").animate({width:'toggle'},350);
   });
 }
