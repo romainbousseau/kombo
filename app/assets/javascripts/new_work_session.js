@@ -12,7 +12,7 @@ $(document).ready(function(){
   listenSelectUser();
 
   $('#brief-editor').froalaEditor({
-    height: 250
+    height: 200
   });
 
   listenSendBrief();
