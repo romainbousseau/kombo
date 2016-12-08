@@ -213,20 +213,4 @@ background: #FFF;
 
 //media queries (mobile)
 
-@media all and (max-device-width: 498px)
-{
-  .span {
-    display: none;
-  }
 
-  .logo {
-    width: 120px;
-    top: 20px;
-    margin-left: 0px;
-  }
-
-  .avatar {
-    margin-right: -220px;
-    margin-top: -35px;
-  }
-}
