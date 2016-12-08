@@ -112,15 +112,18 @@ color: white;
     width: 20%;
     height: 42px;
     background-color:#FF895D;
+    border-color: #FF895D;
 
+    }
+    .btn:focus{
+
+      border-color:black;
+      outline: 0 !important;
+      box-shadow: none;
 
     }
   }
 }
-
-
-
-
 
 
 #Activity{
