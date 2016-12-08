@@ -84,6 +84,9 @@
   height: calc(100vh - 270px);
   flex: 1 auto;
   position: relative;
+  .btn-primary {
+    border-color: transparent;
+  }
 }
 
 .user-description {
@@ -146,7 +149,12 @@
     font-size: 18px;
     font-weight: bold;
     background-color: #FE946C;
+    border-color: transparent;
   }
+  .btn:focus {
+      border-color: black;
+      box-shadow: none;
+    }
 }
 
 #datepicker {
@@ -170,6 +178,16 @@
     }
     .btn-success {
       background-color: #FE946C;
+      border-color: transparent;
+    }
+    .btn-success {
+      background-color: #FE946C;
+      border-color: transparent;
+    }
+    .btn-success:focus {
+      border-color: black;
+      box-shadow: transparent;
+      outline: 0px !important;
     }
   }
 }
