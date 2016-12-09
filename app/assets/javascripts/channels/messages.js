@@ -10,11 +10,8 @@ App.cable = ActionCable.createConsumer();
 App.messages = App.cable.subscriptions.create('MessagesChannel', {
   received: function(data) {
     $("#chat-content").removeClass('hidden');
-    // si on vient de taper enter
-      // on veut remplacer le ... par le contenu du message
-    // sinon
-      // on veut ajouter ... sauf si c'est déjà affiché
-    console.log(data.message)
+    var currentUserId = parseInt($('#chat-content').attr('class'));
+    var messageSender = data.user_id
     if (data.message !== "...") {
       if (currentUserId !== data.user_id) {
         return $('#chat-content div:last-child').hide().parent().append(this.renderMessage(data));
@@ -25,8 +22,6 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
       if ($('#chat-content div:last-child p:last-child').text().trim() === "...") {
         return false
       } else {
-        var currentUserId = parseInt($('#chat-content').attr('class'));
-        var messageSender = data.user_id
         if (currentUserId !== data.user_id) {
           return $('#chat-content').append(this.renderMessage(data));
         }
