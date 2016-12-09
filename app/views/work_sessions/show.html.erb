@@ -88,13 +88,18 @@
 
 <%= content_for(:after_js) do %>
   <script>
-  $('#new_message').keydown(function(e) {
+  $('#new_message').keyup(function(e) {
     var key = e.which;
     if (key == 13) {
-    // As ASCII code for ENTER key is "13"
+      // As ASCII code for ENTER key is "13"
       $('#new_message').submit(); // Submit form code
-      }
+    }
+    $.ajax({
+      type: "GET",
+      url: "<%= type_work_session_messages_path(@work_session) %>" + "?content=" + $('#message_content').val()
+    })
   });
+
 
   // $('#new_message').on('click', function() {
   //   $('#message_sent_sound').play();

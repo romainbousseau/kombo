@@ -35,6 +35,17 @@ class MessagesController < ApplicationController
     end
   end
 
+  def type
+    authorize(Message)
+    ActionCable.server.broadcast 'messages',
+      message: params[:content].blank? ? '' : '...',
+      user: current_user.first_name,
+      user_id: current_user.id
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def message_params

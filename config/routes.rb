@@ -19,7 +19,11 @@ Rails.application.routes.draw do
       post 'decline'
       post 'done'
     end
-    resources :messages, only: [:new, :create, :show]
+    resources :messages, only: [ :new, :create, :show ] do
+      collection do
+        get 'type'
+      end
+    end
   end
 
 
