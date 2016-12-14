@@ -96,7 +96,7 @@ color: white;
 #skills{
   background-color: white;
   box-shadow: 1px 1px 0.2em #dedede;
-  height: 50vh;
+  min-height: 50vh;
   text-align: center;
   margin-bottom: 20px;
   transition: all 0.7s ease;
@@ -129,7 +129,7 @@ color: white;
 #Activity{
   background-color: white;
   box-shadow: 1px 1px 0.2em #dedede;
-  height: 50vh;
+  min-height: 50vh;
   transition: all 0.7s ease;
 }
 
