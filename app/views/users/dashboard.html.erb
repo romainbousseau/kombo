@@ -61,12 +61,12 @@
   <% unless kombo.status == "done" || kombo.status == "decline" %>
     <% if kombo.problem_user == current_user %>
       <li class="feed-item">
-        <time class="date"><%= kombo.starts_at.strftime("%b %l")%></time>
+        <time class="date"><%= kombo.starts_at.strftime("%b %d")%></time>
         <span class="text">Asked help to <%= kombo.solver_user.first_name %> <%= kombo.solver_user.last_name %>, who is a <%= kombo.solver_user.work_department%> expert</span>
       </li>
     <% else %>
       <li class="feed-item">
-        <time class="date"><%= kombo.starts_at.strftime("%b %l") %></time>
+        <time class="date"><%= kombo.starts_at.strftime("%b %d") %></time>
         <span class="text"><%= kombo.problem_user.first_name %> <%= kombo.problem_user.last_name %> asked for your help. Needs a <%= kombo.solver_user.work_department %> expert</span>
       </li>
     <% end %>
